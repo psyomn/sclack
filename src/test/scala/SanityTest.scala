@@ -1,9 +1,14 @@
 import org.scalatest.FunSpec
-import org.scalatest.BeforeAndAfter
 
+/** 
+ * Just leave this here so I remember what a specification file looks like in
+ * Scalatest.
+ * @author Simon Symeonidis
+ */
 class SanityTest extends FunSpec {
-  
-  describe("is my sanity ok?") {
-    assert(true)
+  describe("Sanity") {
+    it("should be ok...?") {
+      assert(1 == 1)
+    }
   }
 }
