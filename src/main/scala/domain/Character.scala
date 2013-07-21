@@ -6,9 +6,11 @@ package sclack.domain
  * 
  * @author Simon Symeonidis
  */
-class Character extends Entity with Observable{
+class Character extends Entity with Observable with Demonstratable{
 
   def observe = "Default implementation"
+
+  def demonstrate = null
 
   /** Hitpoints are the current life of the character */
   var hitpoints    = 10
