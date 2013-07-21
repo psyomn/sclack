@@ -11,9 +11,7 @@ import swing.event._
  */
 object MainMenu extends SimpleSwingApplication {
   def top = new MainFrame {
-    title = "Sclack v" + Sclack.version 
-    contents = new Button {
-      text = "herpa derp" 
-    }
+   title = "Sclack v" + Sclack.version 
+   contents = new Button {text = "New Game"}
   }
 }
