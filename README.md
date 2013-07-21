@@ -10,3 +10,11 @@ To build the project, you'll need Simple Build Tool ([http://www.scala-sbt.org](
 Go into the main directory, and run `sbt`. The project should build
 successfully. 
 
+When you're ready you just need to run the following:
+
+    sbt run
+
+If you want to generate the documentation, then run the following:
+
+    sbt doc
+

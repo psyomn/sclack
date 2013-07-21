@@ -3,17 +3,10 @@ package sclack.ui
 import sclack.domain.Die
 
 object Sclack {
+  val version = "0.1"
+  val authors = Array("Simon Symeonidis (psyomn)")
+  val license = "GPL v3.0"
+
   def main(args: Array[String]){
-    var die = new Die(6)
-    println("hello world")
-    println(die.roll)
-    println(die.roll)
-    println(die.roll)
-    println(die.roll)
-    println(die.roll)
-    println(die.roll)
-    println(die.roll)
-    println(die.roll)
-    println(die.roll)
   }
 }

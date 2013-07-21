@@ -1,3 +1,5 @@
+package sclack.domain 
+
 import javax.swing.ImageIcon
 
 /** 
