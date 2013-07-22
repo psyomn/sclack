@@ -6,6 +6,8 @@ import swing._
 import swing.event._
 import scala.swing._
 
+import sclack.domain.commands.{CreateNewGame, DeleteGame, LoadGame}
+
 /** 
  * The main menu of the application. This is where the user specifies whether
  * we want a new game, to load a game, or to delete a game.
@@ -40,6 +42,7 @@ object MainMenu extends SimpleSwingApplication {
     case ButtonClicked(b) => 
       b.text match {
          case `newGameText`    =>
+           
          case `loadGameText`   =>
          case `deleteGameText` =>
       }

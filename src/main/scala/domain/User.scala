@@ -7,5 +7,8 @@ package sclack.domain
  */
 class User(mName: String){
 
+  /** The identity of the user */
+  val id : Long = -1
+
   def name = mName
 }
