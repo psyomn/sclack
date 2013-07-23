@@ -6,7 +6,7 @@ small case study.
 
 #### Building
 
-To build the project, you'll need Simple Build Tool ([http://www.scala-sbt.org](sbt)).
+To build the project, you'll need Simple Build Tool ([sbt](http://www.scala-sbt.org)). 
 Go into the main directory, and run `sbt`. The project should build
 successfully. 
 
