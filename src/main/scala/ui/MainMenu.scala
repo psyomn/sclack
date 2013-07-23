@@ -6,6 +6,7 @@ import swing._
 import swing.event._
 import scala.swing._
 
+import sclack.domain.GameSession
 import sclack.domain.commands.{CreateNewGame, DeleteGame, LoadGame}
 
 /** 
@@ -27,7 +28,7 @@ object MainMenu extends SimpleSwingApplication {
   var labelIcon        = new Label{icon = logoIcon}
 
   def top = new MainFrame {
-    title            = "Sclack v" + Sclack.version 
+    title = "Sclack v" + Sclack.version 
 
     contents = new BoxPanel(Orientation.Vertical){ 
       contents += labelIcon
@@ -41,10 +42,34 @@ object MainMenu extends SimpleSwingApplication {
   reactions += {
     case ButtonClicked(b) => 
       b.text match {
-         case `newGameText`    =>
-           
-         case `loadGameText`   =>
-         case `deleteGameText` =>
+         case `newGameText`    => createNewGame
+         case `loadGameText`   => loadGame
+         case `deleteGameText` => deleteGame
       }
+  }
+
+  /** 
+   * React to the create game click, by creating a new game session 
+   */
+  def createNewGame {
+    var createCommand = new CreateNewGame()
+    createCommand.execute
+    createCommand.gameSession
+  }
+
+  /** 
+   * React to the load game click, by load a new game session 
+   */
+  def loadGame {
+    var loadGameCommand = new LoadGame()
+    loadGameCommand.execute
+  }
+
+  /** 
+   * React to the delete game click, by delete a new game session 
+   */
+  def deleteGame {
+    var deleteGameCommand = new DeleteGame()
+    deleteGameCommand.execute
   }
 }

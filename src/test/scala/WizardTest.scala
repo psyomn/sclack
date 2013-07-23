@@ -22,11 +22,11 @@ class WizardTest extends FunSpec with BeforeAndAfter{
     }
 
     it("should be observable") {
-      Common.hasMethod("observe", wizard)
+      assert(Common.hasMethod("observe", wizard))
     }
     
     it("should be demonstratable") {
-      Common.hasMethod("demonstrate", wizard)
+      assert(Common.hasMethod("demonstrate", wizard))
     }
   }
 

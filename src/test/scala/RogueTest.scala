@@ -22,11 +22,11 @@ class RogueTest extends FunSpec with BeforeAndAfter{
     }
 
     it("should be observable") {
-      Common.hasMethod("observe", rogue)
+      assert(Common.hasMethod("observe", rogue))
     }
     
     it("should be demonstratable") {
-      Common.hasMethod("demonstrate", rogue)
+      assert(Common.hasMethod("demonstrate", rogue))
     }
   }
 

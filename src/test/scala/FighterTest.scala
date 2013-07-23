@@ -22,11 +22,11 @@ class FighterTest extends FunSpec with BeforeAndAfter{
     }
 
     it("should be observable") {
-      Common.hasMethod("observe", fighter)
+      assert(Common.hasMethod("observe", fighter))
     }
     
     it("should be demonstratable") {
-      Common.hasMethod("demonstrate", fighter)
+      assert(Common.hasMethod("demonstrate", fighter))
     }
   }
 

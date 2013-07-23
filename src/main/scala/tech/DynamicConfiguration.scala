@@ -12,4 +12,5 @@ object DynamicConfiguration {
   val conf = home + ".config"
   val app  = conf + "/sclack"
   val data = app  + "/data"
+  val logs = app  + "/logs"
 }
