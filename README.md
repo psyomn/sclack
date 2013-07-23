@@ -14,7 +14,12 @@ When you're ready you just need to run the following:
 
     sbt run
 
+To run the tests (which use `ScalaTest`), run the following: 
+
+    sbt test
+
 If you want to generate the documentation, then run the following:
 
     sbt doc
+
 
