@@ -13,8 +13,16 @@ import scala.swing._
  * @see    LoadGame
  * @author Simon Symeonidis
  */
-object GameUI {
-  
+class GameUI extends Dialog {
+  title = "SCLACK! SCLACK! SCLACK!"
+  modal = true
+
+  contents = new BoxPanel(Orientation.Vertical){
+    contents += new Button { text = "orly??" }
+  }
+
+  centerOnScreen()
+  open()
 }
 
 

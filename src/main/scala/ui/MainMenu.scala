@@ -55,6 +55,7 @@ object MainMenu extends SimpleSwingApplication {
     var createCommand = new CreateNewGame()
     createCommand.execute
     createCommand.gameSession
+    val gameUI = new GameUI()
   }
 
   /** 
