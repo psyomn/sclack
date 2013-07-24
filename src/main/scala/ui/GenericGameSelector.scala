@@ -14,7 +14,7 @@ import scala.swing._
  * @see    LoadGame
  * @author Simon Symeonidis
  */
-object GenericGameSelector extends SimpleSwingApplication {
+object GenericGameSelector {
 
 }
 

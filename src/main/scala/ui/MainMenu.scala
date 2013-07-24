@@ -19,12 +19,12 @@ object MainMenu extends SimpleSwingApplication {
   val newGameText      = "New Game" 
   val loadGameText     = "Load Game" 
   val deleteGameText   = "Delete Game"
-  val resourceDir      = getClass.getResource("/title.png")
+  val imageLocation    = getClass.getResource("/title.png")
 
   var newGameButton    = new Button {text = newGameText}
   var loadGameButton   = new Button {text = loadGameText}
   var deleteGameButton = new Button {text = deleteGameText}
-  var logoIcon         = new ImageIcon(resourceDir)
+  var logoIcon         = new ImageIcon(imageLocation)
   var labelIcon        = new Label{icon = logoIcon}
 
   def top = new MainFrame {
