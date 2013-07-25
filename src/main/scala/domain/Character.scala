@@ -41,6 +41,10 @@ class Character extends Entity with Observable with Demonstratable{
     skillpoints += 2 * level
   }
   
+  def improveConstitution = improve("constitution")
+  def improveIntelligence = improve("intelligence")
+  def improveStrength     = improve("strength")
+
   /**
    * Improve one of the character's ability by using the skillpoints 
    */

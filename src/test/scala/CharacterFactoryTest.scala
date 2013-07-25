@@ -1,3 +1,4 @@
+package sclack.testing
 import org.scalatest.FunSpec
 import org.scalatest.BeforeAndAfter
 
