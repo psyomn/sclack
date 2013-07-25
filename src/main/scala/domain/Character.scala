@@ -13,15 +13,71 @@ class Character extends Entity with Observable with Demonstratable{
   def demonstrate = null
 
   /** Hitpoints are the current life of the character */
-  var hitpoints    = 10
+  var hitpoints    : Int = 10
 
   /** Constitution is the max life of the character */
-  var constitution = 10
+  var constitution : Int = 10
 
   /** Intelligence of the character */
-  var intelligence = 10
+  var intelligence : Int = 5
 
   /** Current magic points of the character */
-  var magicPoints  = 10
+  var magicPoints  : Int = 0
 
+  /** Strength of the character */ 
+  var strength     : Int = 1
+
+  /** Skillpoints that may be used in order to improve stats */
+  var skillpoints  : Int = 0;
+
+  /** Somewhat cosmetic thing that shows us the current level */
+  var level        : Int = 1;
+
+  /** The experience points of the character */ 
+  var experience   : Int = 0;
+
+  /** TODO maybe some other formula for this one */
+  def levelUp {
+    skillpoints += 2 * level
+  }
+  
+  /**
+   * Improve one of the character's ability by using the skillpoints 
+   */
+  def improve(ability: String){
+    ability match { 
+      case "constitution" => increaseConstitution
+      case "intelligence" => increaseIntelligence
+      case "strength"     => increaseStrength
+    }
+  }
+
+  def increaseStrength { 
+    if (enoughSkillpoints(strength)){
+      skillpoints -= strength
+      strength    += 1
+    }
+  }
+
+  def increaseIntelligence {
+    if (enoughSkillpoints(intelligence))
+      skillpoints  -= intelligence
+      intelligence += 1
+  }
+  
+  def increaseConstitution {
+    if (enoughSkillpoints(constitution))
+      skillpoints  -= constitution
+      constitution += 1
+  }
+
+  def enoughSkillpoints(abilityAmount : Int) : Boolean = {
+    if (skillpoints >= abilityAmount) {
+      return true;
+    }
+    else {
+      throw new SclackException("Not enough skillpoints to increase ability");
+    }
+  }
+      
 }
