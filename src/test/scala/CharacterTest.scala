@@ -22,39 +22,38 @@ class CharacterTest extends FunSpec with BeforeAndAfter {
     describe("skillpoints") {
       describe("should decrease by the amount of points assigned to") {
         it("constitution"){
-	  character.improveConstitution
-	  assert(character.skillpoints == 90)
-	}
-	it("intelligence"){
-	  character.improveIntelligence
-	  assert(character.skillpoints == 95)
-	}
-	it("strength"){
-	  character.improveStrength
-	  assert(character.skillpoints == 99)
-	}
+          character.improveConstitution
+          assert(character.skillpoints == 90)
+        }
+        it("intelligence"){
+          character.improveIntelligence
+          assert(character.skillpoints == 95)
+        }
+        it("strength"){
+          character.improveStrength
+          assert(character.skillpoints == 99)
+        }
       }
     }
 
     describe("abilities"){
       describe("improvements"){ 
         it("should increase by one for constitution"){
-	  var old = character.constitution
-	  character.improveConstitution
+          var old = character.constitution
+          character.improveConstitution
           assert(old + 1 == character.constitution)
-	}
+        }
         it("should increase by one for strength"){
-	  var old = character.strength
-	  character.improveStrength
-	  assert(old + 1 == character.strength)
-	}
+          var old = character.strength
+          character.improveStrength
+          assert(old + 1 == character.strength)
+        }
         it("should increase by one for intelligence"){
-	  var old = character.intelligence
-	  character.improveIntelligence
-	  assert(old + 1 == character.intelligence)
-	}
+          var old = character.intelligence
+          character.improveIntelligence
+          assert(old + 1 == character.intelligence)
+        }
       }
     }
   }
-
 }

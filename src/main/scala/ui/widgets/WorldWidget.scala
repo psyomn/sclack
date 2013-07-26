@@ -12,6 +12,6 @@ import scala.swing._
  * 
  * @author Simon Symeonidis 
  */
-object WorldWidget {
+object WorldWidget extends BorderPanel {
  
 }

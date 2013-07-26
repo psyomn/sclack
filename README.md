@@ -4,6 +4,18 @@ Is a hack and slash game written in Scala. It should go over most of the core
 feature of the language, and provide a usable application by the end of this
 small case study.
 
+#### Where did the silly name come from?
+
+I had started but not finished another project some time ago (that someday I 
+wish to finish) called Slack, and Slackedit to venture in the realms of data
+driven systems, basically an experiment on how much one could decouple logic
+and data from the actual system in order to keep it as dynamic as possible
+(this is pretty much assets in gaming engines, and how you can just pass them
+to other people to work on, while focusing purely on the engine).
+
+Slack is a combination of the words 'slash' and 'hack', because we love slash
+and hack games. Like nethack. Hackity.
+
 #### Building
 
 To build the project, you'll need Simple Build Tool ([sbt](http://www.scala-sbt.org)). 

@@ -14,6 +14,18 @@ import scala.swing._
  * 
  * @author Simon Symeonidis 
  */
-object InfoWidget {
- 
+object InfoWidget extends BorderPanel {
+  val buttons = new BoxPanel(Orientation.Horizontal) {
+    contents += new Button{ 
+      text =  "clear"}
+  }
+
+
+  val infoList : ListView[String] = new ListView[String]
+  infoList.fixedCellHeight = 100
+  infoList.fixedCellWidth  = 100
+
+  import BorderPanel.Position._
+  layout(infoList) = Center
+  layout(buttons)  = South
 }

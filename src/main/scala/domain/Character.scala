@@ -41,47 +41,32 @@ class Character extends Entity with Observable with Demonstratable{
     skillpoints += 2 * level
   }
   
-  def improveConstitution = improve("constitution")
-  def improveIntelligence = improve("intelligence")
-  def improveStrength     = improve("strength")
+  def improveConstitution = increaseConstitution
+  def improveIntelligence = increaseIntelligence
+  def improveStrength     = increaseStrength
 
-  /**
-   * Improve one of the character's ability by using the skillpoints 
-   */
-  def improve(ability: String){
-    ability match { 
-      case "constitution" => increaseConstitution
-      case "intelligence" => increaseIntelligence
-      case "strength"     => increaseStrength
-    }
-  }
-
-  def increaseStrength { 
+  private def increaseStrength { 
     if (enoughSkillpoints(strength)){
       skillpoints -= strength
       strength    += 1
     }
   }
 
-  def increaseIntelligence {
-    if (enoughSkillpoints(intelligence))
+  private def increaseIntelligence {
+    if (enoughSkillpoints(intelligence)){
       skillpoints  -= intelligence
       intelligence += 1
+    }
   }
   
-  def increaseConstitution {
-    if (enoughSkillpoints(constitution))
+  private def increaseConstitution {
+    if (enoughSkillpoints(constitution)){
       skillpoints  -= constitution
       constitution += 1
+    }
   }
 
-  def enoughSkillpoints(abilityAmount : Int) : Boolean = {
-    if (skillpoints >= abilityAmount) {
-      return true;
-    }
-    else {
-      throw new SclackException("Not enough skillpoints to increase ability");
-    }
-  }
+  private def enoughSkillpoints(abilityAmount : Int) : Boolean = 
+    skillpoints >= abilityAmount;
       
 }

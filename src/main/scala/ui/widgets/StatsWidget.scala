@@ -12,6 +12,6 @@ import scala.swing._
  * 
  * @author Simon Symeonidis 
  */
-object StatsWidget {
+object StatsWidget extends BorderPanel {
  
 }

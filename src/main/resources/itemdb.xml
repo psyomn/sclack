@@ -1,0 +1,24 @@
+<!--  
+  Author : Simon Symeonidis 
+  This is for storing static information about different items. This stores the
+  information to instantiate equipable, and consumable items 
+-->
+<itemlist> 
+
+  <equipable>
+    <!-- Base items that can be extended programmatically
+      ie: dagger + ice = frozen dagger, and add elemental modifiers -->
+    <item name="dagger" die="1d4" element="physical" />
+    <item name="short sword" die="1d6" element="physical" />
+    <item name="long sword" die="2d6" element="physical" />
+    <item name="great sword" die="2d10" element="physical" />
+  </equipable>
+
+  <consumable>
+    <item name="weak potion" effect="heal" die="1d6" />
+    <item name="medium potion" effect="heal" die="2d6" />
+    <item name="great potion" effect="heal" die="3d6"/>
+  </consumable>
+
+</itemlist>
+
