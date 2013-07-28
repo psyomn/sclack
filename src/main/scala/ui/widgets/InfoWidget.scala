@@ -15,8 +15,10 @@ import scala.swing._
  * @author Simon Symeonidis 
  */
 object InfoWidget extends BorderPanel {
+  val tmpButts : Array[String] = Array("Clear", "Derp", "Herp", "Derpa")
   val buttons = new BoxPanel(Orientation.Horizontal) {
-    contents += new Button{ text =  "clear" }
+    for (s <- tmpButts)
+      contents += new Button{ text = s }
   }
 
   preferredSize = new Dimension(600,200)
