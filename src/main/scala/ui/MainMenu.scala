@@ -19,11 +19,13 @@ object MainMenu extends SimpleSwingApplication {
   val newGameText      = "New Game" 
   val loadGameText     = "Load Game" 
   val deleteGameText   = "Delete Game"
+  val quitText         = "Quit"
   val imageLocation    = getClass.getResource("/title.png")
 
   var newGameButton    = new Button {text = newGameText}
   var loadGameButton   = new Button {text = loadGameText}
   var deleteGameButton = new Button {text = deleteGameText}
+  var quitGameButton   = new Button {text = quitText}
   var logoIcon         = new ImageIcon(imageLocation)
   var labelIcon        = new Label{icon = logoIcon}
 
@@ -35,6 +37,7 @@ object MainMenu extends SimpleSwingApplication {
       contents += newGameButton
       contents += loadGameButton
       contents += deleteGameButton
+      contents += quitGameButton
     }
   }
 
@@ -45,13 +48,14 @@ object MainMenu extends SimpleSwingApplication {
          case `newGameText`    => createNewGame
          case `loadGameText`   => loadGame
          case `deleteGameText` => deleteGame
+         case `quitText`       => quitGame
       }
   }
 
   /** 
    * React to the create game click, by creating a new game session 
    */
-  def createNewGame {
+  private def createNewGame {
     var createCommand = new CreateNewGame()
     createCommand.execute
     createCommand.gameSession
@@ -61,7 +65,7 @@ object MainMenu extends SimpleSwingApplication {
   /** 
    * React to the load game click, by load a new game session 
    */
-  def loadGame {
+  private def loadGame {
     var loadGameCommand = new LoadGame()
     loadGameCommand.execute
   }
@@ -69,8 +73,16 @@ object MainMenu extends SimpleSwingApplication {
   /** 
    * React to the delete game click, by delete a new game session 
    */
-  def deleteGame {
+  private def deleteGame {
     var deleteGameCommand = new DeleteGame()
     deleteGameCommand.execute
+  }
+
+  /**
+   * Quit the application 
+   */
+  private def quitGame {
+    println("herpderp")
+    exit(0)
   }
 }
