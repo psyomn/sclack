@@ -17,11 +17,15 @@ import scala.swing._
 object WorldWidget extends Panel {
   var graphics : Graphics2D = null
 
+  preferredSize = new Dimension(400,400)
+  maximumSize   = new Dimension(400,400)
+  minimumSize   = new Dimension(400,400)
+
   /** 
    * Draw the required stuff on screen by overidding
    * whatever else might have been needed...
    */ 
   override def paint(g: Graphics2D) {
-    g.draw(new Line2D.Double(0,0,10,10));
+    g.draw(new Line2D.Double(0,0,400,400));
   }
 }

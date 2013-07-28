@@ -16,10 +16,12 @@ import scala.swing._
  */
 object InfoWidget extends BorderPanel {
   val buttons = new BoxPanel(Orientation.Horizontal) {
-    contents += new Button{ text =  "clear"
-    minimumSize = new Dimension(100, 100)
-    maximumSize = new Dimension(100, 100) }
+    contents += new Button{ text =  "clear" }
   }
+
+  preferredSize = new Dimension(600,200)
+  maximumSize   = new Dimension(600,200)
+  minimumSize   = new Dimension(600,200)
 
   val infoList : ListView[String] = new ListView[String]
   infoList.fixedCellHeight = 100
