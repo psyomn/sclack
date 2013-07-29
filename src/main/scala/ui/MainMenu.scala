@@ -82,7 +82,6 @@ object MainMenu extends SimpleSwingApplication {
    * Quit the application 
    */
   private def quitGame {
-    println("herpderp")
     exit(0)
   }
 }
