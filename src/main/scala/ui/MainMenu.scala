@@ -31,7 +31,7 @@ object MainMenu extends SimpleSwingApplication {
 
   def top = new MainFrame {
     title = "Sclack v" + Sclack.version 
-
+    
     contents = new BoxPanel(Orientation.Vertical){ 
       contents += labelIcon
       contents += newGameButton
@@ -59,7 +59,8 @@ object MainMenu extends SimpleSwingApplication {
     var createCommand = new CreateNewGame()
     createCommand.execute
     createCommand.gameSession
-    val gameUI = new GameUI()
+    val characterUI = new CreateCharacter()
+    val gameUI      = new GameUI()
   }
 
   /** 
