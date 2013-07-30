@@ -1,5 +1,6 @@
 package sclack.ui.widgets
 
+import javax.swing.border.EmptyBorder
 import javax.swing.ImageIcon
 import java.awt.Dimension
 import swing._
@@ -26,6 +27,7 @@ object StatsWidget extends BorderPanel {
   preferredSize = new Dimension(400,100)
   maximumSize   = new Dimension(400,100)
   minimumSize   = new Dimension(400,100)
+  border        = new EmptyBorder(10,10,10,10)
 
   /* Add the components here */
   import BorderPanel.Position._

@@ -1,5 +1,6 @@
 package sclack.ui.widgets
 
+import javax.swing.border.EmptyBorder
 import javax.swing.ImageIcon
 import java.awt.Dimension
 import swing._
@@ -24,6 +25,7 @@ object InfoWidget extends BorderPanel {
   preferredSize = new Dimension(600,200)
   maximumSize   = new Dimension(600,200)
   minimumSize   = new Dimension(600,200)
+  border        = new EmptyBorder(10,10,10,10)
 
   val infoList : ListView[String] = new ListView[String]
   infoList.fixedCellHeight = 100

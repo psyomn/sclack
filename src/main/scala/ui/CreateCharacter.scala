@@ -38,8 +38,8 @@ class CreateCharacter extends Dialog {
   var statsList         : Array[Label] = Array[Label](constitutionLabel, intelligenceLabel, strengthLabel)
 
   /* UI Setup start */
-  title   = "Create your character" 
-  modal   = true
+  title = "Create your character" 
+  modal = true
 
   preferredSize = new Dimension(400,400)
   maximumSize   = new Dimension(400,400)
@@ -80,3 +80,4 @@ class CreateCharacter extends Dialog {
   centerOnScreen()
   open()
 }
+

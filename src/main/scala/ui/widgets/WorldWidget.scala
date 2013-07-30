@@ -1,5 +1,6 @@
 package sclack.ui.widgets
 
+import javax.swing.border.EmptyBorder
 import javax.swing.ImageIcon
 import java.awt.Dimension
 import java.awt.Graphics2D
@@ -20,6 +21,7 @@ object WorldWidget extends Panel {
   preferredSize = new Dimension(400,400)
   maximumSize   = new Dimension(400,400)
   minimumSize   = new Dimension(400,400)
+  border        = new EmptyBorder(10,10,10,10)
 
   /** 
    * Draw the required stuff on screen by overidding

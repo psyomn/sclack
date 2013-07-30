@@ -1,5 +1,6 @@
 package sclack.ui
 
+import javax.swing.border.EmptyBorder
 import javax.swing.ImageIcon
 import java.awt.Dimension
 import swing._
@@ -38,7 +39,9 @@ object MainMenu extends SimpleSwingApplication {
       contents += loadGameButton
       contents += deleteGameButton
       contents += quitGameButton
+    border = new EmptyBorder(10,10,10,10)
     }
+
   }
 
   listenTo(newGameButton, loadGameButton, deleteGameButton)

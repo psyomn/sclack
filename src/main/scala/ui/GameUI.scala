@@ -9,7 +9,7 @@ import scala.swing._
 import sclack.ui.widgets.{InfoWidget, StatsWidget, WorldWidget}
 
 /**
- * Main game user interface
+ * Main game user interface.
  * 
  * @see    DeleteGame
  * @see    LoadGame
@@ -30,5 +30,4 @@ class GameUI extends Dialog {
   centerOnScreen()
   open()
 }
-
 
