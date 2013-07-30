@@ -11,24 +11,41 @@ import scala.swing._
  * @author Simon Symeonidis 
  */
 class CreateCharacter extends Dialog {
-  val okText       : String             = "Ok"
-  val cancelText   : String             = "Cancel" 
-  val radioClasses : Array[String]      = Array("Wizard", "Fighter", "Rogue")
+  var okText       : String             = "Ok"
+  var cancelText   : String             = "Cancel" 
+  var radioClasses : Array[String]      = Array("Wizard", "Fighter", "Rogue")
   var radioGroup   : ButtonGroup        = null
-  var radios       : Array[RadioButton] = new Array[RadioButton](10)
+  var radios       : Array[RadioButton] = new Array[RadioButton](0)
+  var radioPanel   : BoxPanel           = new BoxPanel(Orientation.Horizontal)
   var ok           : Button             = new Button{ text = okText }
   var cancel       : Button             = new Button{ text = cancelText }
+  var characterIco : Label              = new Label{ text = "todo char ico" }
 
-  title = "Create your character" 
-  modal = true
-  visible = true
+  /* UI Setup start */
+  title   = "Create your character" 
+  modal   = true
 
-  // for (s <- radioClasses) radios :+ (new Button{ text = s })
+  /* Make the radios */
 
-  // radioGroup = new ButtonGroup(radios:_*)
+  val bottomButtons = new BoxPanel(Orientation.Horizontal) {
+    contents += ok
+    contents += cancel
+  }
+ 
+  val classRadios = new BoxPanel(Orientation.Horizontal) {
+    for (rc <- radioClasses) radios :+= new RadioButton(rc)
+    radioGroup = new ButtonGroup(new RadioButton{text= "alksdj"})
+    contents ++= radios
+  }
 
   contents = new BorderPanel{
     import BorderPanel.Position._
-    layout(new Label{text = "herp"}) = South
+    layout(classRadios)   = North
+    layout(characterIco)  = Center
+    layout(bottomButtons) = South
   }
+  /* UI Setup end */
+
+  centerOnScreen()
+  open()
 }
