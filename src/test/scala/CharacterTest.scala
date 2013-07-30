@@ -12,9 +12,17 @@ import sclack.domain.Character
 
 class CharacterTest extends FunSpec with BeforeAndAfter {
 
+  class MockCharacter extends Character {
+    def combinedStrength     = strength
+    def combinedDexterity    = dexterity
+    def combinedIntelligence = intelligence
+    def combinedConstitution = constitution
+  }
+
   var character : Character = _
+
   before {
-    character = new Character()
+    character = new MockCharacter()
     character.skillpoints = 100
   }
 

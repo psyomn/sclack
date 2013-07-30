@@ -6,7 +6,7 @@ package sclack.domain
  * 
  * @author Simon Symeonidis
  */
-class Character extends Entity with Observable with Demonstratable{
+abstract class Character extends Entity with Observable with Demonstratable{
 
   def observe = "Default implementation"
 
@@ -27,14 +27,17 @@ class Character extends Entity with Observable with Demonstratable{
   /** Strength of the character */ 
   var strength     : Int = 1
 
+  /** Dexterity */
+  var dexterity    : Int = 1
+
   /** Skillpoints that may be used in order to improve stats */
-  var skillpoints  : Int = 0;
+  var skillpoints  : Int = 0
 
   /** Somewhat cosmetic thing that shows us the current level */
-  var level        : Int = 1;
+  var level        : Int = 1
 
   /** The experience points of the character */ 
-  var experience   : Int = 0;
+  var experience   : Int = 0
 
   /** TODO maybe some other formula for this one */
   def levelUp {
@@ -44,6 +47,18 @@ class Character extends Entity with Observable with Demonstratable{
   def improveConstitution = increaseConstitution
   def improveIntelligence = increaseIntelligence
   def improveStrength     = increaseStrength
+  
+  /** Class + Armor combination for stat */
+  def combinedStrength : Int
+  
+  /** Class + Armor combination for stat */
+  def combinedIntelligence : Int
+  
+  /** Class + Armor combination for stat */
+  def combinedConstitution : Int
+
+  /** Class + Armor combination for stat */
+  def combinedDexterity : Int
 
   private def increaseStrength { 
     if (enoughSkillpoints(strength)){

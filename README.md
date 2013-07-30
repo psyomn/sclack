@@ -34,4 +34,9 @@ If you want to generate the documentation, then run the following:
 
     sbt doc
 
+#### Some helpful resources
+
+Just leaving these here for when I need to look back on things. 
+
+[Simple Swing App. @ Artima](http://www.artima.com/pins1ed/gui-programming.html)
 

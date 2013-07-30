@@ -15,9 +15,15 @@ import sclack.domain.{Character, Rogue, Fighter, Wizard}
  * @author Simon Symeonidis 
  */
 class CreateCharacter extends Dialog {
-  var okText       : String             = "Ok"
-  var cancelText   : String             = "Cancel" 
-  var radioClasses : Array[String]      = Array("Wizard", "Fighter", "Rogue")
+  val okText       : String = "Ok"
+  val cancelText   : String = "Cancel" 
+  val wizardText   : String = "Wizard" 
+  val fighterText  : String = "Fighter" 
+  val rogueText    : String = "Rogue"
+
+  var radioClasses : Array[String]      = 
+    Array(wizardText, fighterText, rogueText)
+
   var radioGroup   : ButtonGroup        = null
   var radios       : Array[RadioButton] = new Array[RadioButton](0)
   var radioPanel   : BoxPanel           = new BoxPanel(Orientation.Horizontal)
@@ -26,16 +32,19 @@ class CreateCharacter extends Dialog {
   var characterIco : Label              = new Label{ text = "todo char ico" }
 
   /* Stats */
-  var player       : Character          = new Character
+  var player : Character = new Wizard
 
   var constitutionLabel : Label = 
     new Label{ text = "Constitution : " + player.constitution }
+  
   var intelligenceLabel : Label = 
     new Label{ text = "Intelligence : " + player.intelligence }
+  
   var strengthLabel     : Label = 
     new Label{ text = "Strength : " + player.strength }
 
-  var statsList         : Array[Label] = Array[Label](constitutionLabel, intelligenceLabel, strengthLabel)
+  var statsList : Array[Label] = 
+    Array[Label](constitutionLabel, intelligenceLabel, strengthLabel)
 
   /* UI Setup start */
   title = "Create your character" 
@@ -76,6 +85,33 @@ class CreateCharacter extends Dialog {
   }
 
   /* UI Setup end */
+
+  /* Reactions */
+  listenTo(radios:_*)
+  listenTo(ok, cancel)
+  reactions += {
+    case ButtonClicked(b) => 
+      b.text match {
+        case `okText`      => println("ok")
+        case `cancelText`  => println("cancel")
+        case `fighterText` => chooseFighter
+        case `wizardText`  => chooseWizard
+        case `rogueText`   => chooseRogue
+      }
+  }
+
+  /* End Reactions */ 
+
+  private def chooseFighter { player = new Fighter(); update }
+  private def chooseWizard  { player = new Wizard();  update }
+  private def chooseRogue   { player = new Rogue();   update }
+
+  private def update {
+    println("update")
+    constitutionLabel.text = "Constitution : " + player.combinedConstitution
+    strengthLabel.text     = "Strength : "     + player.combinedStrength
+    intelligenceLabel.text = "Intelligence : " + player.combinedIntelligence
+  }
 
   centerOnScreen()
   open()

@@ -6,5 +6,8 @@ package sclack.domain
  * @author Simon Symeonidis
  */
 class Wizard extends Character {
-
+  def combinedStrength = strength - 1
+  def combinedIntelligence = intelligence + 5
+  def combinedConstitution = constitution - 1
+  def combinedDexterity = dexterity - 1
 }

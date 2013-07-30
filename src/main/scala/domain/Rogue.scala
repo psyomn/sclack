@@ -6,6 +6,9 @@ package sclack.domain
  * @author Simon Symeonidis
  */
 class Rogue extends Character {
-  
+  def combinedStrength = strength + 1
+  def combinedIntelligence = intelligence + 3
+  def combinedConstitution = constitution + 1
+  def combinedDexterity = dexterity + 10
 }
 
