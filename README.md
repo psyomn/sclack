@@ -2,7 +2,8 @@
 
 Is a hack and slash game written in Scala. It should go over most of the core
 feature of the language, and provide a usable application by the end of this
-small case study.
+small case study. I aim to use software engineering practices as well in order
+to see how well the language can respect the discipline.
 
 #### Where did the silly name come from?
 
@@ -39,4 +40,12 @@ If you want to generate the documentation, then run the following:
 Just leaving these here for when I need to look back on things. 
 
 [Simple Swing App. @ Artima](http://www.artima.com/pins1ed/gui-programming.html)
+
+#### Contributing 
+
+In case you see interest in this project, I'd like to thank you first. However
+this is a project I'm required to work on by myself for the time being. When I
+will be done with the tasks assigned to me on this project on Scala, then any
+and all contributions are welcome. This would be when I `git-tag` this project
+as v1.0.
 
