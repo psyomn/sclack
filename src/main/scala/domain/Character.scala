@@ -8,7 +8,7 @@ package sclack.domain
  */
 abstract class Character extends Entity with Observable with Demonstratable{
 
-  def observe = "Default implementation"
+  def observe = "A fine fellow"
 
   def demonstrate = null
 
@@ -44,8 +44,13 @@ abstract class Character extends Entity with Observable with Demonstratable{
     skillpoints += 2 * level
   }
   
+  /** Interfacing method to the actual back-end method for safe increase */
   def improveConstitution = increaseConstitution
+  
+  /** Interfacing method to the actual back-end method for safe increase */
   def improveIntelligence = increaseIntelligence
+
+  /** Interfacing method to the actual back-end method for safe increase */
   def improveStrength     = increaseStrength
   
   /** Class + Armor combination for stat */
@@ -60,6 +65,9 @@ abstract class Character extends Entity with Observable with Demonstratable{
   /** Class + Armor combination for stat */
   def combinedDexterity : Int
 
+  /**
+   * Safely increase ability
+   */
   private def increaseStrength { 
     if (enoughSkillpoints(strength)){
       skillpoints -= strength
@@ -67,6 +75,9 @@ abstract class Character extends Entity with Observable with Demonstratable{
     }
   }
 
+  /**
+   * Safely increase ability
+   */
   private def increaseIntelligence {
     if (enoughSkillpoints(intelligence)){
       skillpoints  -= intelligence
@@ -74,6 +85,9 @@ abstract class Character extends Entity with Observable with Demonstratable{
     }
   }
   
+  /**
+   * Safely increase ability
+   */
   private def increaseConstitution {
     if (enoughSkillpoints(constitution)){
       skillpoints  -= constitution
@@ -81,6 +95,10 @@ abstract class Character extends Entity with Observable with Demonstratable{
     }
   }
 
+  /** 
+   * Quickhand to check if the player has enough skillpoints to increase a
+   * given skill
+   */
   private def enoughSkillpoints(abilityAmount : Int) : Boolean = 
     skillpoints >= abilityAmount;
       

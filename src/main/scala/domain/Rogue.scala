@@ -6,6 +6,7 @@ package sclack.domain
  * @author Simon Symeonidis
  */
 class Rogue extends Character {
+  override def observe = "You see a ninja like person"
   def combinedStrength = strength + 1
   def combinedIntelligence = intelligence + 3
   def combinedConstitution = constitution + 1
