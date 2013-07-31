@@ -1,3 +1,7 @@
+import AssemblyKeys._
+
+assemblySettings
+
 name         := "sclack"
 
 version      := "1.0"

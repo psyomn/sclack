@@ -85,6 +85,7 @@ outside.
 
 * Case Classes
 * Unit
-* Generics
+* Generics 
+  * (Probably will use this with some of the AI algorithms)
 * Investigate possibility of metaprogramming with Scala
-
+  * Eugene Burmako, Metaprogramming in Scala 2.10: [link](http://scalamacros.org/talks/2012-04-28-MetaprogrammingInScala210.pdf)
