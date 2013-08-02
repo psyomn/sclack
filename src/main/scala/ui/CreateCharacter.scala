@@ -35,16 +35,26 @@ class CreateCharacter extends Dialog {
   var player : Character = new Wizard
 
   var constitutionLabel : Label = 
-    new Label{ text = "Constitution : " + player.constitution }
+    new Label{ text = "Constitution : " + player.combinedConstitution }
   
   var intelligenceLabel : Label = 
-    new Label{ text = "Intelligence : " + player.intelligence }
+    new Label{ text = "Intelligence : " + player.combinedIntelligence }
   
   var strengthLabel     : Label = 
-    new Label{ text = "Strength : " + player.strength }
+    new Label{ text = "Strength : " + player.combinedStrength }
 
-  var statsList : Array[Label] = 
-    Array[Label](constitutionLabel, intelligenceLabel, strengthLabel)
+  var nameLabel         : Label = 
+    new Label{ text = "Name : " }
+
+  var nameEdit          : TextField = new TextField()
+
+  var namePanel = new BoxPanel(Orientation.Vertical) {
+    contents ++= List(nameLabel, nameEdit)
+  }
+
+  var statsList : Array[Component] = 
+    Array[Component](namePanel, constitutionLabel, 
+                     intelligenceLabel, strengthLabel)
 
   /* UI Setup start */
   title = "Create your character" 
@@ -92,8 +102,8 @@ class CreateCharacter extends Dialog {
   reactions += {
     case ButtonClicked(b) => 
       b.text match {
-        case `okText`      => println("ok")
-        case `cancelText`  => println("cancel")
+        case `okText`      => reactOnOk
+        case `cancelText`  => reactOnCancel
         case `fighterText` => chooseFighter
         case `wizardText`  => chooseWizard
         case `rogueText`   => chooseRogue
@@ -106,11 +116,35 @@ class CreateCharacter extends Dialog {
   private def chooseWizard  { player = new Wizard();  update }
   private def chooseRogue   { player = new Rogue();   update }
 
+  /** 
+   * The reaction to do on an ok click
+   */
+  private def reactOnOk {
+    modal = false 
+  }
+  
+  /** 
+   * The reaction to do on a cancel click
+   */
+  private def reactOnCancel {
+  }
+
   private def update {
     println("update")
     constitutionLabel.text = "Constitution : " + player.combinedConstitution
     strengthLabel.text     = "Strength : "     + player.combinedStrength
     intelligenceLabel.text = "Intelligence : " + player.combinedIntelligence
+  }
+
+  /**
+   * Method to check if all the form conditions have been satisfied. In this
+   * case if the user has chosen a class, and has given the character a name
+   * longer than 3 characters
+   * @note We can use Scala's Unit here in order to feed these predicates as
+   *   parameters and actions to perform as well. Hence this behaviour can be
+   *   later on extracted as a trait. 
+   */
+  private def satisfiedFormConditions {
   }
 
   centerOnScreen()
