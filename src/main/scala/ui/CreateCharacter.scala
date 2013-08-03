@@ -9,6 +9,7 @@ import scala.swing._
 
 /* lib */
 import sclack.domain.{Character, Rogue, Fighter, Wizard}
+import sclack.tech.TileHelper
 
 /**
  * Dialog where we can create a particular character for playing the game.
@@ -24,12 +25,14 @@ class CreateCharacter extends Dialog {
   var radioClasses : Array[String]      = 
     Array(wizardText, fighterText, rogueText)
 
+  var thelp = new TileHelper(16,16,"a")
+
   var radioGroup   : ButtonGroup        = null
   var radios       : Array[RadioButton] = new Array[RadioButton](0)
   var radioPanel   : BoxPanel           = new BoxPanel(Orientation.Horizontal)
   var ok           : Button             = new Button{ text = okText }
   var cancel       : Button             = new Button{ text = cancelText }
-  var characterIco : Label              = new Label{ text = "todo char ico" }
+  var characterIco : Label              = new Label{ icon = new ImageIcon(thelp.tile(1)) }
 
   /* Stats */
   var player : Character = new Wizard
@@ -112,9 +115,21 @@ class CreateCharacter extends Dialog {
 
   /* End Reactions */ 
 
-  private def chooseFighter { player = new Fighter(); update }
-  private def chooseWizard  { player = new Wizard();  update }
-  private def chooseRogue   { player = new Rogue();   update }
+  private def chooseFighter { 
+    player = new Fighter()
+    characterIco.icon = new ImageIcon(thelp.tile(1))
+    update
+  }
+  private def chooseWizard  { 
+    player = new Wizard()
+    characterIco.icon = new ImageIcon(thelp.tile(2))
+    update 
+  }
+  private def chooseRogue   { 
+    player = new Rogue()
+    characterIco.icon = new ImageIcon(thelp.tile(3))
+    update 
+  }
 
   /** 
    * The reaction to do on an ok click

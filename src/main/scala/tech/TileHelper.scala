@@ -1,5 +1,11 @@
 package sclack.tech
 
+import java.io.File
+import javax.imageio.ImageIO 
+import java.awt.image.BufferedImage
+import java.awt.Graphics2D
+
+
 /**
  * The tile helper reads an image file and extracts tiles from them. You create
  * this object by specifying the tile dimentions (in our case 16x16), and then
@@ -12,8 +18,8 @@ package sclack.tech
  */
 class TileHelper(x: Int, y: Int, tset: String){
   
-  val dungeonTilesetName = "16x16-dungeon-tiles-nes-remake.png"
-  val fantasyTilesetName = "16x16-fantasy-tileset.png"
+  val dungeonTilesetName = "/16x16-dungeon-tiles-nes-remake.png"
+  val fantasyTilesetName = "/16x16-fantasy-tileset.png"
 
   val dungeonTilesetRes  = getClass.getResource(dungeonTilesetName)
   val fantasyTilesetRes  = getClass.getResource(fantasyTilesetName)
@@ -21,8 +27,11 @@ class TileHelper(x: Int, y: Int, tset: String){
   /**
    * Get a tile by getting an id
    * @param id is the id that is specified 
+   * @note Thanks to: 
+   *   http://stackoverflow.com/questions/299495/ for loading buffered images
    */
-  def tile(id: Int){
+  def tile(id: Int) : BufferedImage = {
+    ImageIO.read(dungeonTilesetRes).getSubimage(16*id,16*id,16,16)
   }
 
   def width   = x
