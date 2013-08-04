@@ -7,9 +7,10 @@ package sclack.domain
  */
 class Rogue extends Character {
   override def observe = "You see a ninja like person"
-  def combinedStrength = strength + 1
+
+  def combinedStrength     = strength + 1
   def combinedIntelligence = intelligence + 3
   def combinedConstitution = constitution + 1
-  def combinedDexterity = dexterity + 10
+  def combinedDexterity    = dexterity + 10
 }
 

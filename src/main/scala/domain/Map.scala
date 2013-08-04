@@ -9,6 +9,6 @@ class Map extends Demonstratable with Observable {
 
   def demonstrate = null
 
-  def observe = "You see nothing of interest here."
+  def observe     = "You see nothing of interest here."
 
 }
