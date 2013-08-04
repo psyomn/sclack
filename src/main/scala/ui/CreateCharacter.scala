@@ -51,7 +51,8 @@ class CreateCharacter extends Dialog {
 
   var nameEdit          : TextField = new TextField()
 
-  var namePanel = new BoxPanel(Orientation.Vertical) {
+  val namePanel = new BoxPanel(Orientation.Vertical) {
+    nameEdit.maximumSize = new Dimension(250, 20)
     contents ++= List(nameLabel, nameEdit)
   }
 
@@ -86,6 +87,9 @@ class CreateCharacter extends Dialog {
   }
 
   val statsLabels = new BoxPanel(Orientation.Vertical){
+    maximumSize = new Dimension(200,400)
+    minimumSize = new Dimension(200,200)
+    preferredSize = new Dimension(200,200)
     contents ++= statsList
   }
 
