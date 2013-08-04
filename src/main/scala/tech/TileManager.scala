@@ -11,21 +11,21 @@ import java.awt.image.BufferedImage
  * @author Simon Symeonidis
  */
 class TileManager {
+  /**
+   * The tilemap to contain the required graphics
+   */
+  private var tilemap = new HashMap[String,BufferedImage]
+
 
   /**
    * Get the tileset by giving the required name
    */
   def get(name: String) {
     name match {
-      case "dungeon" => println("Dungeon tileset load")
+      case "dungeon" => 
       case "fantasy" => println("Fantasy tileset load")
     }
   }
 
-
-  /**
-   * The tilemap to contain the required graphics
-   */
-  private var tilemap = new HashMap[String,BufferedImage]
-
 }
+

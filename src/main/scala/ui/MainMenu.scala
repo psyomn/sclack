@@ -39,9 +39,8 @@ object MainMenu extends SimpleSwingApplication {
       contents += loadGameButton
       contents += deleteGameButton
       contents += quitGameButton
-    border = new EmptyBorder(10,10,10,10)
+      border    = new EmptyBorder(10,10,10,10)
     }
-
   }
 
   listenTo(newGameButton, loadGameButton, deleteGameButton)
@@ -59,11 +58,7 @@ object MainMenu extends SimpleSwingApplication {
    * React to the create game click, by creating a new game session 
    */
   private def createNewGame {
-    var createCommand = new CreateNewGame()
-    createCommand.execute
-    createCommand.gameSession
     val characterUI = new CreateCharacter()
-    val gameUI      = new GameUI()
   }
 
   /** 
@@ -84,8 +79,9 @@ object MainMenu extends SimpleSwingApplication {
 
   /**
    * Quit the application 
+   * TODO need to fix this properly
    */
   private def quitGame {
-    exit(0)
+    sys.exit(0)
   }
 }

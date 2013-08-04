@@ -16,7 +16,7 @@ import java.awt.Graphics2D
  * @param  tileset is the name of the wanted tileset. Please set to 'dungeon'
  *   or 'fantasy', for what you want.
  */
-class TileHelper(x: Int, y: Int, tset: String){
+class TileHelper(x: Int, y: Int, border: Int = 0, tset: String){
   
   val dungeonTilesetName = "/16x16-dungeon-tiles-nes-remake.png"
   val fantasyTilesetName = "/16x16-fantasy-tileset.png"
@@ -31,7 +31,7 @@ class TileHelper(x: Int, y: Int, tset: String){
    *   http://stackoverflow.com/questions/299495/ for loading buffered images
    */
   def tile(id: Int) : BufferedImage = {
-    ImageIO.read(dungeonTilesetRes).getSubimage(16*id,16*id,16,16)
+    ImageIO.read(dungeonTilesetRes).getSubimage(2,2,16,16)
   }
 
   def width   = x

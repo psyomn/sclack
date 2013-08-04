@@ -1,7 +1,11 @@
 # Milestones
 
 Just keeping the goals in text so that I can keep track of myself in case I
-have no access to github. Laying out work is always a good thing too.
+have no access to github. Laying out work is always a good thing too. If you
+are a curious soul, and wish to see if some other topics are covered in this
+project, you can also do so, by reading the points covered in each milestone
+(for example if you are interested to see if the `assembly` plugin is used, you
+can keep on reading...)
 
 This is subject to change however - points might appear and disappear in some
 releases (though it should not be often).
@@ -36,8 +40,12 @@ _Extra topics include:_
   in Scala to perform from simple to complex tasks (so if any other person
   needs examples, this could be a good place to look at; maybe).
 
-* Using SBT for compilation and testing tasks, ScalaTest for behavioural
+* Using _sbt_ for compilation and testing tasks, ScalaTest for behavioural
   testing
+
+  * Using _sbt_ plugin called `assembly` that automatically packages us a 
+    standalone jar that contains the project's class files, and library 
+    dependencies.
 
 * Minor use of reflection in Scala / Java in order to test for method
   availabilities in classes.

@@ -8,7 +8,7 @@ import swing.event._
 import scala.swing._
 
 /* lib */
-import sclack.domain.{Character, Rogue, Fighter, Wizard}
+import sclack.domain.{Character, Rogue, Fighter, Wizard, GameSession}
 import sclack.tech.TileHelper
 
 /**
@@ -22,10 +22,10 @@ class CreateCharacter extends Dialog {
   val fighterText  : String = "Fighter" 
   val rogueText    : String = "Rogue"
 
-  var radioClasses : Array[String]      = 
+  val radioClasses : Array[String]      = 
     Array(wizardText, fighterText, rogueText)
 
-  var thelp = new TileHelper(16,16,"a")
+  var thelp = new TileHelper(16,16,0,"a")
 
   var radioGroup   : ButtonGroup        = null
   var radios       : Array[RadioButton] = new Array[RadioButton](0)
@@ -115,16 +115,21 @@ class CreateCharacter extends Dialog {
 
   /* End Reactions */ 
 
+  /** Switch character, and change graphics */
   private def chooseFighter { 
     player = new Fighter()
-    characterIco.icon = new ImageIcon(thelp.tile(1))
+    characterIco.icon = new ImageIcon(thelp.tile(0))
     update
   }
+  
+  /** Switch character, and change graphics */
   private def chooseWizard  { 
     player = new Wizard()
     characterIco.icon = new ImageIcon(thelp.tile(2))
     update 
   }
+
+  /** Switch character, and change graphics */
   private def chooseRogue   { 
     player = new Rogue()
     characterIco.icon = new ImageIcon(thelp.tile(3))
@@ -133,19 +138,26 @@ class CreateCharacter extends Dialog {
 
   /** 
    * The reaction to do on an ok click
+   * TODO GameSession object should be created here
    */
   private def reactOnOk {
-    modal = false 
+    var session = new GameSession() 
+    session.characters :+= player
+    dispose
+    val gameUI = new GameUI()
   }
   
   /** 
    * The reaction to do on a cancel click
    */
   private def reactOnCancel {
+    dispose
   }
 
+  /** 
+   * Update the information on here
+   */
   private def update {
-    println("update")
     constitutionLabel.text = "Constitution : " + player.combinedConstitution
     strengthLabel.text     = "Strength : "     + player.combinedStrength
     intelligenceLabel.text = "Intelligence : " + player.combinedIntelligence
@@ -155,6 +167,7 @@ class CreateCharacter extends Dialog {
    * Method to check if all the form conditions have been satisfied. In this
    * case if the user has chosen a class, and has given the character a name
    * longer than 3 characters
+   * 
    * @note We can use Scala's Unit here in order to feed these predicates as
    *   parameters and actions to perform as well. Hence this behaviour can be
    *   later on extracted as a trait. 

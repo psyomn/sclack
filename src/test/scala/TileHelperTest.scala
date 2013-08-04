@@ -13,7 +13,7 @@ class TileHelperTest extends FunSpec with BeforeAndAfter{
   describe("TileHelper") {
     describe("Attributes"){
       before {
-        tileHelper = new TileHelper(16, 16, "thePath")
+        tileHelper = new TileHelper(16, 16, 0, "thePath")
       }
       it("should include a tile method"){
         assert(Common.hasMethod("tile", tileHelper))
