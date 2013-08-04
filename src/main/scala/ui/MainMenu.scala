@@ -21,12 +21,14 @@ object MainMenu extends SimpleSwingApplication {
   val loadGameText     = "Load Game" 
   val deleteGameText   = "Delete Game"
   val quitText         = "Quit"
+  val creditsText      = "Credits" 
   val imageLocation    = getClass.getResource("/title.png")
 
   var newGameButton    = new Button {text = newGameText}
   var loadGameButton   = new Button {text = loadGameText}
   var deleteGameButton = new Button {text = deleteGameText}
   var quitGameButton   = new Button {text = quitText}
+  var creditsButton    = new Button {text = creditsText}
   var logoIcon         = new ImageIcon(imageLocation)
   var labelIcon        = new Label{icon = logoIcon}
 
@@ -38,12 +40,14 @@ object MainMenu extends SimpleSwingApplication {
       contents += newGameButton
       contents += loadGameButton
       contents += deleteGameButton
+      contents += creditsButton
       contents += quitGameButton
       border    = new EmptyBorder(10,10,10,10)
     }
   }
 
-  listenTo(newGameButton, loadGameButton, deleteGameButton)
+  listenTo(newGameButton, loadGameButton, deleteGameButton, quitGameButton,
+           creditsButton)
   reactions += {
     case ButtonClicked(b) => 
       b.text match {
@@ -51,6 +55,7 @@ object MainMenu extends SimpleSwingApplication {
          case `loadGameText`   => loadGame
          case `deleteGameText` => deleteGame
          case `quitText`       => quitGame
+         case `creditsText`    => creditsDialog
       }
   }
 
@@ -78,10 +83,18 @@ object MainMenu extends SimpleSwingApplication {
   }
 
   /**
+   * Open the credits dialog
+   */
+  private def creditsDialog {
+    val creditsUI = new Credits()
+  }
+ 
+  /**
    * Quit the application 
    * TODO need to fix this properly
    */
   private def quitGame {
-    sys.exit(0)
+    println("Bye.")
+    quit()
   }
 }

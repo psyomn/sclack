@@ -8,6 +8,7 @@ import java.awt.Color
  * @author Simon Symeonidis
  */
 object TextFieldFactory {
+
   /**
    * Create a disabled (grayed out) text field with the required
    * information inside
