@@ -27,7 +27,7 @@ releases (though it should not be often).
  
 ##### Scala Topics Covered
 
-The scala toics covered in this release is the following:
+The scala topics covered in this release is the following:
 
 * Classes, Objects, Traits, (Re-) using libraries from pure Java
 
@@ -48,7 +48,7 @@ _Extra topics include:_
     dependencies.
 
 * Minor use of reflection in Scala / Java in order to test for method
-  availabilities in classes.
+  availabilities in classes. (See sclack.testing.Common)
 
 * Exploiting __splat__ operators in oder to produce more elegant code
 
@@ -74,13 +74,17 @@ _Extra topics include:_
 
 * Implementation of a simple battle system
 
-#### v0.5 - Quest
+#### v0.5 - Experience Gain, and Improvements
+
+* Implementation of stats tweaking on the ui, and domain
+
+#### v0.6 - Quest
 
 * Implementation of a simple story, so that the game can begin and end
 
 * Investigate the ease of allowing the player to play past the endpoint
 
-#### v1.0 - Release / Endproject
+#### v1.0 - Release / Endproject (Persistence)
 
 This release should conclude the project I undertook for learning the Scala
 programming language, and most or all of its features. This is the point where
@@ -97,3 +101,4 @@ outside.
   * (Probably will use this with some of the AI algorithms)
 * Investigate possibility of metaprogramming with Scala
   * Eugene Burmako, Metaprogramming in Scala 2.10: [link](http://scalamacros.org/talks/2012-04-28-MetaprogrammingInScala210.pdf)
+

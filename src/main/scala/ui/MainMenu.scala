@@ -70,23 +70,21 @@ object MainMenu extends SimpleSwingApplication {
    * React to the load game click, by load a new game session 
    */
   private def loadGame {
-    var loadGameCommand = new LoadGame()
-    loadGameCommand.execute
+    new GenericGameSelector("Load", new LoadGame())
   }
 
   /** 
    * React to the delete game click, by delete a new game session 
    */
   private def deleteGame {
-    var deleteGameCommand = new DeleteGame()
-    deleteGameCommand.execute
+    new GenericGameSelector("Delete", new DeleteGame())
   }
 
   /**
    * Open the credits dialog
    */
   private def creditsDialog {
-    val creditsUI = new Credits()
+    new Credits()
   }
  
   /**

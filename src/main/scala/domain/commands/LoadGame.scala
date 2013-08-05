@@ -6,5 +6,6 @@ package sclack.domain.commands
  */
 class LoadGame extends Commandable {
   def execute {
+    println("Load Game Command Executed")
   }
 }

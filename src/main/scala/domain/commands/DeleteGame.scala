@@ -6,5 +6,6 @@ package sclack.domain.commands
  */
 class DeleteGame extends Commandable {
   def execute {
+    println("Delete Game Command Executed")
   }
 }
