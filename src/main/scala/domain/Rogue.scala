@@ -12,5 +12,6 @@ class Rogue extends Character {
   def combinedIntelligence = intelligence + 3
   def combinedConstitution = constitution + 1
   def combinedDexterity    = dexterity + 10
+  def discipline = "Rogue"
 }
 

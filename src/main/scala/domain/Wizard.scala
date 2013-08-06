@@ -11,4 +11,5 @@ class Wizard extends Character {
   def combinedIntelligence = intelligence + 5
   def combinedConstitution = constitution - 1
   def combinedDexterity = dexterity - 1
+  def discipline = "Wizard" 
 }

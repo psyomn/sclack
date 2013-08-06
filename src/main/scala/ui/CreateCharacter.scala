@@ -30,7 +30,7 @@ class CreateCharacter extends Dialog {
   var radioGroup   : ButtonGroup        = null
   var radios       : Array[RadioButton] = new Array[RadioButton](0)
   var radioPanel   : BoxPanel           = new BoxPanel(Orientation.Horizontal)
-  var ok           : Button             = new Button{ text = okText }
+  var ok           : Button             = new Button{ text = okText; enabled = false}
   var cancel       : Button             = new Button{ text = cancelText }
   var characterIco : Label              = new Label{ icon = new ImageIcon(thelp.tile(1)) }
 
@@ -64,9 +64,9 @@ class CreateCharacter extends Dialog {
   title = "Create your character" 
   modal = true
 
-  preferredSize = new Dimension(400,400)
-  maximumSize   = new Dimension(400,400)
-  minimumSize   = new Dimension(400,400)
+  preferredSize = new Dimension(300,200)
+  maximumSize   = new Dimension(300,200)
+  minimumSize   = new Dimension(300,200)
 
   /* Make the radios */
 
@@ -78,6 +78,7 @@ class CreateCharacter extends Dialog {
   val classRadios = new BoxPanel(Orientation.Horizontal) {
     for (rc <- radioClasses) radios :+= new RadioButton(rc)
     radioGroup = new ButtonGroup(radios:_*)
+    radioGroup.select(radios.head)
     contents ++= radios
   }
 
@@ -105,7 +106,7 @@ class CreateCharacter extends Dialog {
 
   /* Reactions */
   listenTo(radios:_*)
-  listenTo(ok, cancel)
+  listenTo(ok, cancel, nameEdit)
   reactions += {
     case ButtonClicked(b) => 
       b.text match {
@@ -115,6 +116,7 @@ class CreateCharacter extends Dialog {
         case `wizardText`  => chooseWizard
         case `rogueText`   => chooseRogue
       }
+    case _ => satisfiedFormConditions
   }
 
   /* End Reactions */ 
@@ -177,6 +179,7 @@ class CreateCharacter extends Dialog {
    *   later on extracted as a trait. 
    */
   private def satisfiedFormConditions {
+    ok.enabled = nameEdit.text.length >= 3 
   }
 
   centerOnScreen()

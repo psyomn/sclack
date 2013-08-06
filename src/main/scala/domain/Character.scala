@@ -65,6 +65,12 @@ abstract class Character extends Entity with Observable with Demonstratable{
   /** Class + Armor combination for stat */
   def combinedDexterity : Int
 
+  /** 
+   * Easy way to discern class (should not be used programmatically for
+   * checks) 
+   */
+  def discipline : String 
+
   /**
    * Safely increase ability
    */

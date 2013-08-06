@@ -10,5 +10,6 @@ class Fighter extends Character {
   def combinedIntelligence = intelligence - 3
   def combinedConstitution = constitution + 2
   def combinedDexterity = dexterity + 1
+  def discipline = "Fighter" 
 }
 
