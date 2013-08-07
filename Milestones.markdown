@@ -78,6 +78,11 @@ _Extra topics include:_
 
 * Implementation of stats tweaking on the ui, and domain
 
+#### v0.7 - Info Widget
+
+* Everything should be logged on the info widget (so that the user can read in
+  detail what is currently happening on the map).
+
 #### v0.6 - Quest
 
 * Implementation of a simple story, so that the game can begin and end
