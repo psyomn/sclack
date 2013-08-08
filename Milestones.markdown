@@ -60,6 +60,11 @@ _Extra topics include:_
 * Start working on a world generating algorithm / feasibility study on time 
   wasted doing this.
 
+##### Topics Covered
+
+* Lazy evaluations of values (used in the graphical assets required by the 
+  applications)
+
 #### v0.3 - Basic map interactions
 
 * Walking around the map 
