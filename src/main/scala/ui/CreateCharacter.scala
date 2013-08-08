@@ -9,7 +9,7 @@ import scala.swing._
 
 /* lib */
 import sclack.domain.{Character, Rogue, Fighter, Wizard, GameSession}
-import sclack.tech.TileHelper
+import sclack.tech.TileManager
 
 /**
  * Dialog where we can create a particular character for playing the game.
@@ -25,14 +25,14 @@ class CreateCharacter extends Dialog {
   val radioClasses : Array[String]      = 
     Array(wizardText, fighterText, rogueText)
 
-  var thelp = new TileHelper(16,16,0,"a")
+  var thelp = TileManager
 
   var radioGroup   : ButtonGroup        = null
   var radios       : Array[RadioButton] = new Array[RadioButton](0)
   var radioPanel   : BoxPanel           = new BoxPanel(Orientation.Horizontal)
   var ok           : Button             = new Button{ text = okText; enabled = false}
   var cancel       : Button             = new Button{ text = cancelText }
-  var characterIco : Label              = new Label{ icon = new ImageIcon(thelp.tile(1)) }
+  var characterIco : Label              = new Label{ icon = new ImageIcon(thelp.tile("dun",1)) }
 
   /* Stats */
   var player : Character = new Wizard
@@ -124,21 +124,21 @@ class CreateCharacter extends Dialog {
   /** Switch character, and change graphics */
   private def chooseFighter { 
     player = new Fighter()
-    characterIco.icon = new ImageIcon(thelp.tile(0))
+    characterIco.icon = new ImageIcon(thelp.tile("dun",1))
     update
   }
   
   /** Switch character, and change graphics */
   private def chooseWizard  { 
     player = new Wizard()
-    characterIco.icon = new ImageIcon(thelp.tile(2))
+    characterIco.icon = new ImageIcon(thelp.tile("dun",2))
     update 
   }
 
   /** Switch character, and change graphics */
   private def chooseRogue   { 
     player = new Rogue()
-    characterIco.icon = new ImageIcon(thelp.tile(3))
+    characterIco.icon = new ImageIcon(thelp.tile("dun",3))
     update 
   }
 
