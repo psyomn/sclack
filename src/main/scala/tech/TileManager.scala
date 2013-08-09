@@ -20,6 +20,10 @@ object TileManager {
 
   /**
    * Get the tileset by giving the required name
+   * @param name is the name of the tileset to use (for now 'dun', and 'fan'
+   *   are the only valid choices 
+   * @param ix is the index of the tile to fetch and return
+   * @return the tile that you require, given the id
    * @note Ultimately you'd 
    */
   def tile(name: String, ix: Int) : BufferedImage = {
