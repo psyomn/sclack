@@ -17,6 +17,7 @@ class CharacterTest extends FunSpec with BeforeAndAfter {
     def combinedDexterity    = dexterity
     def combinedIntelligence = intelligence
     def combinedConstitution = constitution
+    def discipline           = "Mock"
   }
 
   var character : Character = _

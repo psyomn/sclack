@@ -31,13 +31,11 @@ class TileHelper(x: Int, y: Int, bdr: Int = 0, tset: java.net.URL){
    * @param id is the id that is specified 
    * @note Thanks to: 
    *   http://stackoverflow.com/questions/299495/ for loading buffered images
+   * @throws SclackTechnicalException if an id of 0 is given (we assume that
+   *   ids are non-zero, positive numbers)
    */
   def tile(id: Int) : BufferedImage = {
     if (id <= 0) throw new SclackTechnicalException("ids are > 0")
-    println("Relative x: " + relativeX(id))
-    println("Relative y: " + relativeY(id))
-    println("Relative w: " + width)
-    println("Relative h: " + height)
 
     tileset.getSubimage(
       relativeX(id),

@@ -28,13 +28,41 @@ object TileManager {
    */
   def tile(name: String, ix: Int) : BufferedImage = {
     name match {
-      /* Dungeon */
-      case "dun" => 
-        return dungeonTileHelper.tile(ix)
+    /* Dungeon */
+    case "dun" => 
+      return dungeonTileHelper.tile(ix)
 
-      /* Fantasy */
-      case "fan" => 
-        return fantasyTileHelper.tile(ix)
+    /* Fantasy */
+    case "fan" => 
+      return fantasyTileHelper.tile(ix)
+    }
+  }
+
+  /**
+   * Get the width of a particular tileset
+   * 
+   * @param name is the name of the tileset we want. You can either specify
+   *   "dun" or "fan" for the dungeon or fantasy tilesets, respectively. 
+   * @return the width of that particular tileset
+   */
+  def widthOf(name: String) : Int = {
+    name match {
+    case "dun" => return dungeonTileHelper.width
+    case "fan" => return fantasyTileHelper.width
+    }
+  }
+
+  /**
+   * Get the height of a particular tileset
+   * 
+   * @param name is the name of the tileset we want. You can either specify
+   *   "dun" or "fan" for the dungeon or fantasy tilesets, respectively. 
+   * @return the height of that particular tileset.
+   */
+  def heightOf(name: String) : Int = {
+    name match {
+    case "dun" => return dungeonTileHelper.height
+    case "fan" => return fantasyTileHelper.height
     }
   }
 

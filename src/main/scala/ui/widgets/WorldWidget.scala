@@ -9,6 +9,8 @@ import swing._
 import swing.event._
 import scala.swing._
 
+import sclack.tech.TileManager
+
 /** 
  * This is the widget where the world is demonstrated upon. Whatever happens to
  * the domain version of the world should be represented here.
@@ -16,8 +18,6 @@ import scala.swing._
  * @author Simon Symeonidis 
  */
 object WorldWidget extends Panel {
-  var graphics : Graphics2D = null
-
   preferredSize = new Dimension(400,400)
   maximumSize   = new Dimension(400,400)
   minimumSize   = new Dimension(400,400)
@@ -28,6 +28,17 @@ object WorldWidget extends Panel {
    * whatever else might have been needed...
    */ 
   override def paint(g: Graphics2D) {
-    g.draw(new Line2D.Double(0,0,400,400));
+    import scala.util.Random 
+    var rand = new Random()
+
+    var tm = TileManager
+    
+    for (i <- 0 to 25){
+      for (j <- 0 to 25){
+        g.drawImage(tm.tile("fan", 10),i*16,j*16,16,16,null)
+      }
+    }
+
+    g.finalize()
   }
 }
