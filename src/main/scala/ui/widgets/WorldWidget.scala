@@ -35,7 +35,7 @@ object WorldWidget extends Panel {
     
     for (i <- 0 to 25){
       for (j <- 0 to 25){
-        g.drawImage(tm.tile("fan", 10),i*16,j*16,16,16,null)
+        g.drawImage(tm.tile("fan", 1 + rand.nextInt.abs % 10),i*16,j*16,16,16,null)
       }
     }
 
