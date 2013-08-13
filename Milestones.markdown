@@ -65,6 +65,9 @@ _Extra topics include:_
 * Lazy evaluations of values (used in the graphical assets required by the 
   applications)
 
+* Overriding Swing's paint methods for panels, in order to draw the map as an
+  actual widget.
+
 #### v0.3 - Basic map interactions
 
 * Walking around the map 
