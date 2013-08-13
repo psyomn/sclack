@@ -66,7 +66,8 @@ _Extra topics include:_
   applications)
 
 * Overriding Swing's paint methods for panels, in order to draw the map as an
-  actual widget.
+  actual widget. Some rewrites of the tile helper and added a tile manager to 
+  delegate to tile helpers (refactoring + architecture)
 
 #### v0.3 - Basic map interactions
 
