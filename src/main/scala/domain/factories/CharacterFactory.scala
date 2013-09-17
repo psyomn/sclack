@@ -5,6 +5,8 @@ import sclack.domain.{Character, Fighter, Wizard, Rogue}
 /** 
  * Factory class that helps create Characters, because the creation is a
  * complex process.
+ * 
+ * @author Simon Symeonidis 
  */
 
 object CharacterFactory  {
