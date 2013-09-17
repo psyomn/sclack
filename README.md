@@ -5,6 +5,14 @@ feature of the language, and provide a usable application by the end of this
 small case study. I aim to use software engineering practices as well in order
 to see how well the language can respect the discipline.
 
+With a little more development, maybe the game would look a little better than
+this: 
+
+![http://www.xenagoras.net/dat/map.png](http://www.xenagoras.net/dat/map.png)
+
+(This is mainly a comment about my programming, the tilesets that I am using
+are pretty awesome, check out the credits for the author information).
+
 #### Where did the silly name come from?
 
 I had started but not finished another project some time ago (that someday I 
