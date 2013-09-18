@@ -11,7 +11,7 @@ class GameSession {
   var user       : User = _
 
   /** The characters that the user has */
-  var characters : Array[Character] = new Array[Character](3)
+  var character : Character = _
 
   /** The seed of the current world */
   var seed       : Long = -1
@@ -23,4 +23,6 @@ class GameSession {
 
   /** The map that the game takes place on */
   var map        : Map   = MapFactory.createSingleMap
+
+  map.mainChar = character
 }

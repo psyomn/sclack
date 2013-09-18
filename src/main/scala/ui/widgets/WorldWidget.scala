@@ -39,6 +39,7 @@ object WorldWidget extends Panel {
 
     drawMap(g)
     drawNPCs(g)
+    drawPlayer(g)
     
     g.finalize()
   }
@@ -66,6 +67,16 @@ object WorldWidget extends Panel {
     for (ent <- currMap.entities){
       g.drawImage(ent._3.demonstrate, ent._1, ent._2, null)
     }
+  }
+
+  /* For drawing the main player on the map */
+  private def drawPlayer(g: Graphics2D) {
+     import sclack.tech.TileManager
+     g.drawImage(
+       currMap.mainChar.demonstrate, 
+       currMap.mainCharPos._1 * 16,
+       currMap.mainCharPos._2 * 16,
+       null)
   }
 }
 

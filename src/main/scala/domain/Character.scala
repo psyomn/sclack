@@ -1,5 +1,7 @@
 package sclack.domain
 
+import sclack.tech.TileManager
+
 /** 
  * Characters are the in game characters that you can use (for example fighters
  * wizards, rogues etc).
@@ -10,7 +12,7 @@ abstract class Character extends Entity with Observable with Demonstratable{
 
   def observe = "A fine fellow"
 
-  def demonstrate = null
+  def demonstrate = TileManager.tile("dun", 3)
 
   /** Hitpoints are the current life of the character */
   var hitpoints    : Int = 10

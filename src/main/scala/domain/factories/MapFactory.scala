@@ -9,7 +9,11 @@ import sclack.domain.Entity
 import sclack.tech.TileManager
 
 /** 
- * Factory for creating various maps that we may or may not use 
+ * Factory for creating various maps that we may or may not use. I know that
+ * this class looks horrible due to all the hard coded arrays, but this is 
+ * ok for now. If this were to be a `good' game and have things programmed 
+ * properly, assets would be loaded from a separate location. I don't have
+ * the luxury of time to do this like that however, so this will have to do.
  *
  * @author Simon Symeonidis 
  */
@@ -138,8 +142,7 @@ object MapFactory {
       Array[Int](1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1), 
       Array[Int](1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1), 
       Array[Int](1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1), 
-      Array[Int](1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-    )
+      Array[Int](1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1))
   }
 }
 

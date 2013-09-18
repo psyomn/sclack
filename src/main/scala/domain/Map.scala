@@ -18,5 +18,10 @@ class Map {
 
   var obstructions = Array.fill[Int](25,25){0}
 
-  var entities : Array[(Int, Int, NonPlayableCharacter)] = _
+  var entities : Array[(Int, Int, NonPlayableCharacter)] = Array()
+
+  var mainChar : Character = _
+
+  /* Default position whenever the player starts playing the game */
+  var mainCharPos : (Int, Int) = (1, 1)
 }

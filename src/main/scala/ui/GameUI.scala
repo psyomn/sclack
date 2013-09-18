@@ -16,11 +16,11 @@ import sclack.domain.GameSession
  * @see    LoadGame
  * @author Simon Symeonidis
  */
-class GameUI extends Dialog {
+class GameUI(sess: GameSession) extends Dialog {
   title = "SCLACK! SCLACK! SCLACK!"
   modal = true
 
-  var session = new GameSession()
+  var session = sess
 
   /** Thanks to http://vimeo.com/13900342 (Ken Scambler) */
   contents = new BorderPanel{

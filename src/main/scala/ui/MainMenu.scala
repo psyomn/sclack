@@ -13,6 +13,7 @@ import sclack.domain.commands.{CreateNewGame, DeleteGame, LoadGame}
 /** 
  * The main menu of the application. This is where the user specifies whether
  * we want a new game, to load a game, or to delete a game.
+ *
  * @author Simon Symeonidis 
  */
 object MainMenu extends SimpleSwingApplication {
@@ -96,3 +97,4 @@ object MainMenu extends SimpleSwingApplication {
     quit()
   }
 }
+

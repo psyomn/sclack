@@ -148,9 +148,12 @@ class CreateCharacter extends Dialog {
    */
   private def reactOnOk {
     var session = new GameSession() 
-    session.characters :+= player
+
+    session.character = player
+    session.map.mainChar = player 
     dispose
-    val gameUI = new GameUI()
+
+    val gameUI = new GameUI(session)
   }
   
   /** 
