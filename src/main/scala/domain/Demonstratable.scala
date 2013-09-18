@@ -1,6 +1,6 @@
 package sclack.domain 
 
-import javax.swing.ImageIcon
+import java.awt.image.BufferedImage
 
 /** 
  * This trait is purely for the gui aspect of things. If something is
@@ -11,5 +11,5 @@ import javax.swing.ImageIcon
  * @author Simon Symeonidis 
  */
 trait Demonstratable {
-  def demonstrate : ImageIcon
+  def demonstrate : BufferedImage
 }

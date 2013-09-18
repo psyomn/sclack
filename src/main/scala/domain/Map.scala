@@ -6,15 +6,7 @@ package sclack.domain
  * @author Simon Symeonidis 
  * @see World
  */ 
-class Map extends Demonstratable with Observable {
-
-  def demonstrate = null
-
-  /**
-   * Textual representation of the world. Probably this can't be used with
-   * the way everything is graphically represented. 
-   */
-  def observe = "You see nothing of interest here."
+class Map {
 
   def at(x: Int, y: Int) = data(x)(y)
 

@@ -22,7 +22,7 @@ object MapFactory {
     map.data = Array[Array[Int]](
       Array(140, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 
             131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 140),
-      Array(140, 110, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120,
+      Array(140, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120,
             120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 140),
       Array(140, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120,
             120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 140),
@@ -90,7 +90,7 @@ object MapFactory {
       "Hopefully we'll be included in the real game one day!", 
       "Actually it would be nice to see this thing be finished at some point",
       "Hi, my name is Harry and I'M GOING TO KILL YOU"
-    ).map(new NonPlayableCharacter(_,new ImageIcon(TileManager.tile("fan",4))))
+    ).map(new NonPlayableCharacter(_,TileManager.tile("fan",110)))
   }
 }
 
