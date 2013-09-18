@@ -1,7 +1,12 @@
 package sclack.domain.factories
 
+import javax.swing.ImageIcon
+
 import sclack.domain.Map
 import sclack.domain.NonPlayableCharacter
+import sclack.domain.Entity
+
+import sclack.tech.TileManager
 
 /** 
  * Factory for creating various maps that we may or may not use 
@@ -65,6 +70,15 @@ object MapFactory {
             120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 140),
       Array(131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131,
             131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131, 131))
+    
+    var npcs = createGenericNPCs
+
+    map.entities = Array[(Int, Int, NonPlayableCharacter)](
+      (160         , 160, npcs(0)), 
+      (160 + 1 * 16, 160, npcs(1)),
+      (160 + 2 * 16, 160, npcs(2)),
+      (160 + 3 * 16, 160, npcs(3)),
+      (160 + 4 * 16, 160, npcs(4)))
 
     map
   }
@@ -76,7 +90,7 @@ object MapFactory {
       "Hopefully we'll be included in the real game one day!", 
       "Actually it would be nice to see this thing be finished at some point",
       "Hi, my name is Harry and I'M GOING TO KILL YOU"
-    ).map(new NonPlayableCharacter(_))
+    ).map(new NonPlayableCharacter(_,new ImageIcon(TileManager.tile("fan",4))))
   }
 }
 

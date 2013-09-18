@@ -22,6 +22,8 @@ object WorldWidget extends Panel {
   /** The current map that we wish to render. */
   var currMap : sclack.domain.Map = MapFactory.createSingleMap
 
+  var tileMan = TileManager
+
   preferredSize = new Dimension(400,400)
   maximumSize   = new Dimension(400,400)
   minimumSize   = new Dimension(400,400)
@@ -33,26 +35,38 @@ object WorldWidget extends Panel {
    */ 
   override def paint(g: Graphics2D) {
     import scala.util.Random 
-    /* Should be done in a better way... */
-    val width  = 24
-    val height = 24
 
     var rand = new Random()
+
+    drawMap(g)
+    drawNPCs(g)
+    
+    g.finalize()
+  }
+ 
+  /* Isolate drawing logic for maps */
+  private def drawMap(g: Graphics2D) {
+    /* Should be done in a better way... */
+    val width  = currMap.width  - 1
+    val height = currMap.height - 1
     var currentTile : Int = 0
 
-    var tm = TileManager
-    
     for (i <- 0 to height){
       for (j <- 0 to width){
         currentTile = (height + 1) * i + j
-        println(currentTile)
-          g.drawImage(
-            tm.tile("fan", 
-                    currMap.at(i,j)), /* What to draw */ 
-                    j * 16, i * 16, null)
+        g.drawImage(
+          tileMan.tile("fan", 
+          currMap.at(i,j)), /* What to draw */ 
+          j * 16, i * 16, null)
       }
     }
+  }
 
-    g.finalize()
+  /* Isolate drawing logic for maps */
+  private def drawNPCs(g: Graphics2D) {
+    for (ent <- currMap.entities){
+      g.drawImage(ent._3.demonstrate, ent._1, ent._2, null)
+    }
   }
 }
+
