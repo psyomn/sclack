@@ -10,7 +10,6 @@ import swing.event._
 import scala.swing._
 
 import sclack.tech.TileManager
-import sclack.domain.factories.MapFactory
 
 /** 
  * This is the widget where the world is demonstrated upon. Whatever happens to
@@ -20,7 +19,7 @@ import sclack.domain.factories.MapFactory
  */
 object WorldWidget extends Panel {
   /** The current map that we wish to render. */
-  var currMap : sclack.domain.Map = MapFactory.createSingleMap
+  var currMap : sclack.domain.Map = _
 
   var tileMan = TileManager
 

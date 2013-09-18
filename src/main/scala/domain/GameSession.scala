@@ -7,7 +7,7 @@ import sclack.domain.factories.MapFactory
  * @author Simon Symeonidis
  */
 class GameSession {
-  /** The profile of the user */
+  /** The profile of the user. We're not really using this at the moment */
   var user       : User = _
 
   /** The characters that the user has */
