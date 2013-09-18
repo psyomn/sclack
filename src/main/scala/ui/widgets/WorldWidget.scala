@@ -20,7 +20,7 @@ import sclack.domain.factories.MapFactory
  */
 object WorldWidget extends Panel {
   /** The current map that we wish to render. */
-  var currMap   = MapFactory.createSingleMap
+  var currMap : sclack.domain.Map = MapFactory.createSingleMap
 
   preferredSize = new Dimension(400,400)
   maximumSize   = new Dimension(400,400)
@@ -37,9 +37,6 @@ object WorldWidget extends Panel {
     val width  = 24
     val height = 24
 
-    if (!MapFactory.isValidMap(currMap))
-      throw new Exception("OMFG")
-
     var rand = new Random()
     var currentTile : Int = 0
 
@@ -50,8 +47,9 @@ object WorldWidget extends Panel {
         currentTile = (height + 1) * i + j
         println(currentTile)
           g.drawImage(
-            tm.tile("fan", currMap(currentTile)), /* What to draw */ 
-            j * 16, i * 16, null)
+            tm.tile("fan", 
+                    currMap.at(i,j)), /* What to draw */ 
+                    j * 16, i * 16, null)
       }
     }
 
