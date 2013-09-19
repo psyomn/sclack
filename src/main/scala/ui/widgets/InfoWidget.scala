@@ -34,5 +34,5 @@ object InfoWidget extends BorderPanel {
   import BorderPanel.Position._
   layout(infoList) = Center
   layout(buttons)  = South
-
 }
+

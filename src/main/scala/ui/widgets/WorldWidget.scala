@@ -71,7 +71,6 @@ object WorldWidget extends Panel {
 
   /* For drawing the main player on the map */
   private def drawPlayer(g: Graphics2D) {
-     import sclack.tech.TileManager
      g.drawImage(
        currMap.mainChar.demonstrate, 
        currMap.mainCharPos._1 * 16,

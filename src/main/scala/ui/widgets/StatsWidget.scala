@@ -39,6 +39,7 @@ object StatsWidget extends BorderPanel {
 
   /* Add the components here */
   import BorderPanel.Position._
-  layout(tabs) = Center
+  layout(tabs)          = Center
+  layout(ActionButtons) = South
   
 }
