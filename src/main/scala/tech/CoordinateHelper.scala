@@ -23,5 +23,21 @@ object CoordinateHelper {
       (coord._1, coord._2 + 1)  /* down  */
     )
   }
+
+  def moveNorth(curr: (Int,Int)) : (Int, Int) = {
+    (curr._1, curr._2 - 1)
+  }
+
+  def moveSouth(curr: (Int,Int)) : (Int, Int) = {
+    (curr._1, curr._2 + 1)
+  }
+
+  def moveEast(curr: (Int,Int)) : (Int, Int) = {
+    (curr._1 + 1, curr._2)
+  }
+  
+  def moveWest(curr: (Int,Int)) : (Int, Int) = {
+    (curr._1 - 1, curr._2)
+  }
 }
 

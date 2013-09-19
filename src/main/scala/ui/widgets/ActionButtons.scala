@@ -9,6 +9,9 @@ import scala.swing._
 import GridBagPanel._
 import Array._
 
+import sclack.domain.GameSession
+import sclack.tech.CoordinateHelper
+
 /** 
  * The buttons that will help to do different actions  
  *
@@ -19,6 +22,8 @@ object ActionButtons extends GridBagPanel {
     "?",      "/\\",    "?", 
     "<",      "center", ">",
     "Attack", "V",      "Observe")
+
+  var session : GameSession = _
 
   val buttCapNorth    = buttonsCaptions(1)
   val buttCapSouth    = buttonsCaptions(7)
@@ -58,12 +63,26 @@ object ActionButtons extends GridBagPanel {
         case `buttCapSouth`    => reactSouth
         case `buttCapObserve`  => reactObserve
       }
+
+    WorldWidget.repaint
   }
 
-  private def reactNorth = println("up")
-  private def reactSouth =println("down")
-  private def reactEast =println("east")
-  private def reactWest =println("west")
+  private def reactNorth = 
+    session.map.mainCharPos = 
+      CoordinateHelper.moveNorth(session.map.mainCharPos)
+
+  private def reactSouth =
+    session.map.mainCharPos =
+      CoordinateHelper.moveSouth(session.map.mainCharPos) 
+
+  private def reactEast =
+    session.map.mainCharPos =
+      CoordinateHelper.moveEast(session.map.mainCharPos) 
+
+  private def reactWest =
+    session.map.mainCharPos =
+      CoordinateHelper.moveWest(session.map.mainCharPos) 
+
   private def reactCenter =println("center")
   private def reactAttack =println("attack")
   private def reactObserve =println("observe")

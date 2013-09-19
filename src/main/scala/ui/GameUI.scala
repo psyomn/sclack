@@ -6,7 +6,8 @@ import swing._
 import swing.event._
 import scala.swing._
 
-import sclack.ui.widgets.{InfoWidget, StatsWidget, WorldWidget}
+import sclack.ui.widgets.{InfoWidget, StatsWidget, WorldWidget,
+                          ActionButtons}
 import sclack.domain.GameSession
 
 /**
@@ -26,8 +27,11 @@ class GameUI(sess: GameSession) extends Dialog {
   contents = new BorderPanel{
     import BorderPanel.Position._
 
-    WorldWidget.currMap = session.map
+    /* Some standard initializement */
+    WorldWidget.currMap   = session.map
+    ActionButtons.session = session
 
+    /* Add the components to the main ui layout */
     layout(StatsWidget) = East
     layout(WorldWidget) = Center
     layout(InfoWidget)  = South
