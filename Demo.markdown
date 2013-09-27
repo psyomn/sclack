@@ -117,24 +117,26 @@ Using Scalatest, we're given access to different testing suites. I used a BDD
 suite, and all the tests may be observed in `src/test'. To execute them, run 
 sbt and type `test'.
 
-  [psyomn@aeolus sclack 0]$ sbt
-  Loading /usr/share/java/sbt/bin/sbt-launch-lib.bash
-  [info] Loading project definition from .../scala/sclack/project
-  [info] Set current project to sclack (in build file:.../scala/sclack/)
-  > test
-  [info] WizardTest:
-  [info] Wizard traits 
-  [info] - should be an instance of Character
-  [info] - should be observable
-  [info] - should be demonstratable
-  [info] Wizard attributes 
-  [info] TileHelperTest:
-  [info] TileHelper 
-  [info]   Attributes 
-  [info]   - should include a tile method
-  [info]   - should include a width method
-  [info]   - should include a height method
-  [info]   - should include a tileset method
+````bash
+[psyomn@aeolus sclack 0]$ sbt
+Loading /usr/share/java/sbt/bin/sbt-launch-lib.bash
+[info] Loading project definition from .../scala/sclack/project
+[info] Set current project to sclack (in build file:.../scala/sclack/)
+> test
+[info] WizardTest:
+[info] Wizard traits 
+[info] - should be an instance of Character
+[info] - should be observable
+[info] - should be demonstratable
+[info] Wizard attributes 
+[info] TileHelperTest:
+[info] TileHelper 
+[info]   Attributes 
+[info]   - should include a tile method
+[info]   - should include a width method
+[info]   - should include a height method
+[info]   - should include a tileset method
+````
 
 The tests are probably not what you would see in the real world, but I was just
 messing around, and curious to see this testing suite in action.
