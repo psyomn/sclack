@@ -55,5 +55,5 @@ In case you see interest in this project, I'd like to thank you first. However
 this is a project I'm required to work on by myself for the time being. When I
 will be done with the tasks assigned to me on this project on Scala, then any
 and all contributions are welcome. This would be when I `git-tag` this project
-as v1.0.
+as v3.0.
 
