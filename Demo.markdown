@@ -182,8 +182,6 @@ messing around, and curious to see this testing suite in action.
 Let us take a look at some fun and interesting stuff that was done in the
 software.
 
-* The tiles used in order to portray maps. 
-
 #### Classes and Objects 
 
 Basically we discern between things we want to instantiate, and things we don't
