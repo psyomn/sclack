@@ -61,12 +61,6 @@ Ubuntu and similar use apt-get
 $ sudo apt-get install sbt
 ````
 
-And then run with
-
-````bash
-$ sbt
-````
-
 Then you just need to write your (optional) configuration file for your
 project. The configuration file of sbt is located in the root directory of said
 project.  It contains information about the project such as _version number_,
@@ -125,6 +119,12 @@ documentation here:
 And some even more detailed configuration details here:
 
 > [SBT file Specification on STEROIDS](http://goo.gl/M7reZa)
+
+Finally you just need to run sbt:
+
+````bash
+$ sbt
+````
 
 On a last note, as previously mentioned, the sbt file is not really required
 for a project. You can enter any directory with Scala sources, 
