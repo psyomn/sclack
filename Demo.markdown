@@ -74,7 +74,7 @@ _name_, and other fluff like that. More importantly, you can specify the scala
 version you require for this application, as well as dependencies. This pretty
 much manages everything for you on the fly; the required scala version, along
 with the dependencies that work with *that* particular scala version, are
-downloaded from repositories such as maven (or any other user defined
+downloaded from repositories such as _maven.org_ (or any other user defined
 repository if specified), and compiled as well if needed.
 
 Let us take a look at the current project's sbt file, sclack.sbt:
@@ -102,17 +102,17 @@ exportJars := true
 ````
 
 For this project, I decided using a few 3rd party libraries which some I
-did not completely have the chance to use given the alotted time. You can
-see these libraries inside "libraryDependencies". The first column is the
+did not completely have the chance to investigate given the alotted time. You
+can see these libraries inside "libraryDependencies". The first column is the
 GroupID (think of it as a certain software vendor id) we want things from, the
 second the library name, with a required scala version shown some times, and
 the third column being the version of that actual library. 
 
 For the purpose of this project, I added Scalatest, SQLite, ScalaSwing and
-ScalaQuery to the dependency stack, though I did not get a chance to use 
-everything. I've also used a plugin to sbt called *Assembly* which packages
+ScalaQuery to the dependency stack, though as stated, I did not get a chance to
+use everything. I've also used a plugin to sbt called *Assembly* which packages
 all the dependencies in a big jar file, so that you can share the resulting
-binary with ease. (This however will make a really beefy jar file, and might 
+binary with ease. (This however will make a really beefy jar file, and might
 not be something you want, so be sure that you want to indeed assemble things).
 
 Note: an SBT configuration file (project-name.sbt), IS A scala file. So you can
@@ -134,7 +134,7 @@ application.
 ##### SBT Commands
 
 The only commands you really need to memorize, are 'compile' and 'run'. And
-'run' calls compile. So that's one command.
+'run' calls `compile` if needed. So that's one command.
 
 If you're using a testing framework as I am (scalatest), you can type `test' in
 order to run your tests. 
@@ -198,57 +198,37 @@ object Main {
 }
 ````
 
-For example, here is a simple class used in the application for simulating a
-die. We can instantiate this class with sides, as you can see right next to 
-the class declaration.
+On the other hand, here is a simple class used in the application for
+simulating a die. We instantiate this class with sides, as you can see
+right next to the class declaration.
 
 ````scala
 package sclack.domain
 
 import scala.util.Random
 
-/**
-* A die class to be used in conjuction with attacks, spells, etc.
-* specifications
-* @author Simon Symeonidis 
-*/
 class Die(sides: Int){
 
-  /**
-  * Roll the dice 
-  * @return A random number based on the number of sides specified
-  */
   def roll = random.nextInt.abs % sides + 1
-
-  /** Delegate randomness to random random object.*/
   val random = new Random()
 }
+
+...
+
+var die = new Die(20)
 
 ````
 
 For an example using objects, we can see the following. This is a helper class
-that I needed that just gives back cartesian coordinates. I did not need it
-instantiated, however the methods fit well together. Therefore this object
+that I needed that just gives back cartesian coordinates. This does not need
+instantiation, however the methods fit well together. Therefore this object
 was defined:
 
 ````scala
 package sclack.tech
 
-/**
- * Just a class to help with coordinates and reduce code clutter. 
- * 
- * @author Simon Symeonidis 
- */
 object CoordinateHelper {
 
-  /**
-   * Call this when you want coordinates for doing things (who is around me?
-   * what is around me?)
-   *
-   * @param  coord is the current coordinate in tuple form (x, y)
-   * @return tuples of (x, y), each containing relative points to (x, y) in
-   *   directions left, right, top, bottom. 
-   */
    def adjacentCoordinates(coord: (Int,Int)) : Array[(Int,Int)] = {
      Array[(Int,Int)](
      (coord._1 - 1, coord._2), /* left  */
@@ -266,6 +246,14 @@ object CoordinateHelper {
 }
 
 ````
+
+Just 2 small observations: tuples in Scala are expressed as variables inside
+parentheses. For example `(Int, String, Int)`  is a tuple with the first
+element being `Int`, the second being `String`, and the third being `Int`. Also
+you might have noticed that there are no `return` statements in the above code,
+though the methods actually have a type signature. This is legal because the
+value returned is the last value evaluated in Scala.
+
 #### Using tilesets
 
 I mentioned that I was thinking about game makers when approaching this game.
@@ -295,11 +283,15 @@ class TileHelper(x: Int, y: Int, bdr: Int = 0, tset: java.net.URL){
 This creates a helper that can be instantiated. In the case of this project,
 we instantiate a tilehelper per tileset. If we have a resonable amount of
 tilesets it's not too memory costly. You can notice a `lazy` there as well.
-That is used to delay the loading of the file. For this application we kept
-things simple, and created a `TileManager`. The `TileManager` provides 
-shorthands to access the different tiles of each tilesets, by providing it a
-tileset identifier (in this case we have ''fan'' and ''dun'' as the two
-identifiers), and a tile id.
+That is used to delay the loading of the graphics file until it is needed. This
+would allow for nicer execution if we had a few many tilesets to load this way,
+since instead of loading everything in one shot, resources are loaded as 
+needed, and making execution seem rather smooth. 
+
+For this application we kept things simple, and created a `TileManager`. The
+`TileManager` provides shorthands to access the different tiles of each
+tilesets, by providing it a tileset identifier (in this case we have ''fan''
+and ''dun'' as the two identifiers), and a tile id.
 
 ````scala
 package sclack.tech
@@ -416,9 +408,113 @@ object WorldWidget extends Panel {
 
 ````
 
-* Use of splat operator, see file: 108:ui.CreateCharacter.scala
+### Random nice things
 
-* Used the lazy load feature in file 26:tech.TileHelper.scala 
+A relatively nice thing that I was also able to use is the `splat` operator. 
+The splat operator can be noticed bellow, as the parameter of the `listenTo`
+function. 
 
-* Used traits in order to describe objects 
+````scala
+object ActionButtons extends GridBagPanel {
+  val buttonsCaptions : Array[String] = Array[String](
+    "?",      "/\\",    "?", 
+    "<",      "center", ">",
+    "Attack", "V",      "Observe")
+
+  val buttons : Array[Button] = buttonsCaptions.map(new Button(_))
+
+  listenTo(buttons:_*)
+  reactions += {
+    case ButtonClicked(b) => 
+      b.text match {
+        case `buttCapSpecial1` => reactSpecial1
+        case `buttCapSpecial2` => reactSpecial2
+        case `buttCapNorth`    => reactNorth
+        ...
+  }
+````
+
+This is very helpful, as we can express a lot by typing in a little: if we were
+to not use a splat operator, we would have to manually insert all the buttons
+by index:
+
+````scala
+  listenTo(buttons(0), buttons(1), buttons(2), ...)
+````
+
+Another nice thing that has been brought into Scala is the `map` method as well
+which is more commonly seen in funtional programming. I ended up using this to
+shorten the amount of lines I had to write in order to generate the buttons:
+
+````scala
+  val buttonsCaptions : Array[String] = Array[String](
+    "?",      "/\\",    "?", 
+    "<",      "center", ">",
+    "Attack", "V",      "Observe")
+
+  val buttons : Array[Button] = buttonsCaptions.map(new Button(_))
+
+````
+
+The underscore is where each element of the mapped array is placed into. So
+we're using the mapping function in this case to create buttons from all the 
+labels in the `buttonsCaptions` array.
+
+Last but not least, here is an example of a BDD test that can get you started:
+
+````scala
+import org.scalatest.FunSpec
+import org.scalatest.BeforeAndAfter
+
+import sclack.domain.{Fighter, Character}
+import sclack.testing.Common
+
+class FighterTest extends FunSpec with BeforeAndAfter{
+  
+  var fighter : Fighter = _
+
+  before {
+    fighter = new Fighter()
+  }
+
+  describe("Fighter traits") {
+    it("should be an instance of Character") {
+      assert(fighter.isInstanceOf[Character])
+    }
+
+    it("should be observable") {
+      assert(Common.hasMethod("observe", fighter))
+    }
+    
+    it("should be demonstratable") {
+      assert(Common.hasMethod("demonstrate", fighter))
+    }
+  }
+
+}
+````
+
+This test is not quite what you'd probably see in a real project, but should
+demonstrate the basics. The Common object is a helper class in which I wanted
+to take a look at reflection capabilities in Scala. It just checks to see if
+the method is available in the given class:
+
+````scala
+package sclack.testing
+
+object Common {
+   /* Thanks to http://stackoverflow.com/questions/2886446 */
+  def hasMethod(name: String, obj: Object) = obj.getClass
+      .getMethods
+      .map(_.getName)
+      .contains(name)
+}
+
+````
+
+## Repository
+
+All the code is available on github:
+
+> [github.com/psyomn/sclack.git](http://www.github.com/psyomn/sclack.git)
 
