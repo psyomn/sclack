@@ -139,6 +139,10 @@ The only commands you really need to memorize, are 'compile' and 'run'. And
 If you're using a testing framework as I am (scalatest), you can type `test' in
 order to run your tests. 
 
+If `scaladoc` is available on your scala install, you should be able to run the
+command `doc` in sbt, and that will generate API documentation given that you
+have written javadoc like comments. 
+
 ## Software Engineering
 
 Some pretty standard Software Engineering techniques have been used in this
