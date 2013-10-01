@@ -256,6 +256,82 @@ you might have noticed that there are no `return` statements in the above code,
 though the methods actually have a type signature. This is legal because the
 value returned is the last value evaluated in Scala.
 
+#### Inheritance
+
+Here is an example of inheritance in Sclack and Scala: 
+
+````scala
+abstract class Character extends Entity with Observable with Demonstratable{
+
+  def observe = "A fine fellow"
+  def demonstrate = TileManager.tile("dun", 3)
+
+  var hitpoints    : Int = 10
+  var constitution : Int = 10
+  var intelligence : Int = 5
+  var magicPoints  : Int = 0
+  var strength     : Int = 1
+  var dexterity    : Int = 1
+  var skillpoints  : Int = 0
+  var level        : Int = 1
+  var experience   : Int = 0
+  
+  ...
+  
+  def combinedStrength : Int
+  def combinedIntelligence : Int
+  def combinedConstitution : Int
+  def combinedDexterity : Int
+
+  /** 
+   * Easy way to discern class (should not be used programmatically for
+   * checks) 
+   */
+  def discipline : String 
+
+}
+````
+And here is an inheriting class. You can see how to override in this example.
+
+````scala
+package sclack.domain
+
+class Fighter extends Character {
+  override def observe = "You see a muscular, intimidating person."
+  def combinedStrength = strength + 5
+  def combinedIntelligence = intelligence - 3
+  def combinedConstitution = constitution + 2
+  def combinedDexterity = dexterity + 1
+  def discipline = "Fighter" 
+}
+
+````
+
+#### Traits 
+
+If you come from a java background, you can think of `Traits` as interfaces.
+For example, let us present a trait that we want to use for observable entities
+in the game. We want to get a string describing that entity.
+
+````scala
+trait Observable {
+  def observe : String
+}
+
+````
+
+Now we can use this trait for pretty much anything that is `Observable`.
+
+````scala
+class Rogue extends Character {
+  override def observe = "You see a ninja like person"
+
+  ...
+}
+
+````
+
+
 #### Using tilesets
 
 I mentioned that I was thinking about game makers when approaching this game.
