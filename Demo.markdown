@@ -128,7 +128,7 @@ $ sbt
 
 On a last note, as previously mentioned, the sbt file is not really required
 for a project. You can enter any directory with Scala sources, 
-And run sbt in `project-root-dir', you're ready to compile and run your
+and run sbt in `project-root-dir', you're ready to compile and run your
 application.
 
 ##### SBT Commands
@@ -261,7 +261,8 @@ value returned is the last value evaluated in Scala.
 Here is an example of inheritance in Sclack and Scala: 
 
 ````scala
-abstract class Character extends Entity with Observable with Demonstratable{
+abstract class Character extends Entity with Observable 
+                                        with Demonstratable{
 
   def observe = "A fine fellow"
   def demonstrate = TileManager.tile("dun", 3)
@@ -573,9 +574,9 @@ class FighterTest extends FunSpec with BeforeAndAfter{
 ````
 
 This test is not quite what you'd probably see in a real project, but should
-demonstrate the basics. The Common object is a helper class in which I wanted
-to take a look at reflection capabilities in Scala. It just checks to see if
-the method is available in the given class:
+demonstrate the basics. The Common object is a custom helper class, and
+I wanted to take a look at reflection capabilities in Scala. It just checks to
+see if the method is available in the given class:
 
 ````scala
 package sclack.testing
